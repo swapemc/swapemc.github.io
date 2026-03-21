@@ -26,371 +26,89 @@
     --mono:      'JetBrains Mono', monospace;
     --sans:      'Syne', sans-serif;
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--mono);
-    font-size: 14px;
-    line-height: 1.7;
-    min-height: 100vh;
-  }
-
-  /* ── Scrollbar ── */
+  body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 14px; line-height: 1.7; min-height: 100vh; }
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
 
-  /* ── Layout ── */
-  .layout {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    min-height: 100vh;
-  }
+  .layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
 
-  /* ── Sidebar ── */
-  .sidebar {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-    background: var(--bg2);
-    border-right: 1px solid var(--border);
-    padding: 0 0 40px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .sidebar-logo {
-    padding: 24px 20px 20px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 8px;
-  }
-
-  .sidebar-logo .wordmark {
-    font-family: var(--sans);
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--text);
-    letter-spacing: -0.5px;
-    display: block;
-  }
-
-  .sidebar-logo .version {
-    font-size: 11px;
-    color: var(--accent);
-    margin-top: 2px;
-    display: block;
-  }
-
-  .nav-section {
-    padding: 16px 20px 4px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text3);
-    font-family: var(--sans);
-  }
-
-  .nav-item {
-    display: block;
-    padding: 5px 20px;
-    font-size: 13px;
-    color: var(--text2);
-    text-decoration: none;
-    transition: color 0.1s, background 0.1s;
-    border-left: 2px solid transparent;
-    margin: 1px 0;
-  }
-
+  .sidebar { position: sticky; top: 0; height: 100vh; overflow-y: auto; background: var(--bg2); border-right: 1px solid var(--border); padding: 0 0 40px; display: flex; flex-direction: column; }
+  .sidebar-logo { padding: 24px 20px 20px; border-bottom: 1px solid var(--border); margin-bottom: 8px; }
+  .sidebar-logo .wordmark { font-family: var(--sans); font-size: 18px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; display: block; }
+  .sidebar-logo .version { font-size: 11px; color: var(--accent); margin-top: 2px; display: block; }
+  .nav-section { padding: 16px 20px 4px; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text3); font-family: var(--sans); }
+  .nav-item { display: block; padding: 5px 20px; font-size: 13px; color: var(--text2); text-decoration: none; transition: color 0.1s, background 0.1s; border-left: 2px solid transparent; margin: 1px 0; }
   .nav-item:hover { color: var(--text); background: var(--bg3); }
   .nav-item.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-dim); }
 
-  /* ── Main content ── */
-  main {
-    padding: 0 60px 80px;
-    max-width: 900px;
-  }
+  main { padding: 0 60px 80px; max-width: 900px; }
 
-  /* ── Hero ── */
-  .hero {
-    padding: 60px 0 48px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 56px;
-  }
-
-  .hero-tag {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 3px 10px;
-    border-radius: 2px;
-    margin-bottom: 20px;
-    font-family: var(--sans);
-  }
-
-  .hero h1 {
-    font-family: var(--sans);
-    font-size: 48px;
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -2px;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-
+  .hero { padding: 60px 0 48px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+  .hero-tag { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 3px 10px; border-radius: 2px; margin-bottom: 20px; font-family: var(--sans); }
+  .hero h1 { font-family: var(--sans); font-size: 48px; font-weight: 800; line-height: 1.05; letter-spacing: -2px; color: var(--text); margin-bottom: 16px; }
   .hero h1 span { color: var(--accent); }
-
-  .hero p {
-    font-size: 15px;
-    color: var(--text2);
-    max-width: 540px;
-    line-height: 1.7;
-  }
-
-  .badge-row {
-    display: flex;
-    gap: 8px;
-    margin-top: 24px;
-    flex-wrap: wrap;
-  }
-
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 10px;
-    border-radius: 2px;
-    font-size: 12px;
-    font-weight: 500;
-    border: 1px solid;
-  }
-
+  .hero p { font-size: 15px; color: var(--text2); max-width: 540px; line-height: 1.7; }
+  .badge-row { display: flex; gap: 8px; margin-top: 24px; flex-wrap: wrap; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 2px; font-size: 12px; font-weight: 500; border: 1px solid; }
   .badge-blue  { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
   .badge-green { color: var(--green);  border-color: var(--green);  background: #4ec99420; }
   .badge-amber { color: var(--amber);  border-color: var(--amber);  background: #e8a84020; }
 
-  /* ── Sections ── */
-  .section {
-    margin-bottom: 64px;
-    scroll-margin-top: 24px;
-  }
+  .section { margin-bottom: 64px; scroll-margin-top: 24px; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .section-num { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent); padding: 2px 8px; border-radius: 2px; letter-spacing: 1px; }
+  .section-header h2 { font-family: var(--sans); font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.5px; }
+  .section > p { color: var(--text2); margin-bottom: 16px; line-height: 1.75; }
 
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .section-num {
-    font-family: var(--sans);
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--accent);
-    background: var(--accent-dim);
-    border: 1px solid var(--accent);
-    padding: 2px 8px;
-    border-radius: 2px;
-    letter-spacing: 1px;
-  }
-
-  .section-header h2 {
-    font-family: var(--sans);
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--text);
-    letter-spacing: -0.5px;
-  }
-
-  .section > p, .subsection > p {
-    color: var(--text2);
-    margin-bottom: 16px;
-    line-height: 1.75;
-  }
-
-  /* ── Code blocks ── */
-  .code-block {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    margin: 16px 0;
-    overflow: hidden;
-  }
-
-  .code-block-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 16px;
-    background: var(--panel);
-    border-bottom: 1px solid var(--border);
-    font-size: 11px;
-    color: var(--text3);
-  }
-
-  .code-block-header .lang {
-    color: var(--accent);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .copy-btn {
-    background: none;
-    border: 1px solid var(--border2);
-    color: var(--text3);
-    font-family: var(--mono);
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: color 0.1s, border-color 0.1s;
-  }
+  .code-block { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; margin: 16px 0; overflow: hidden; }
+  .code-block-header { display: flex; align-items: center; justify-content: space-between; padding: 8px 16px; background: var(--panel); border-bottom: 1px solid var(--border); font-size: 11px; color: var(--text3); }
+  .code-block-header .lang { color: var(--accent); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+  .copy-btn { background: none; border: 1px solid var(--border2); color: var(--text3); font-family: var(--mono); font-size: 11px; padding: 2px 8px; border-radius: 2px; cursor: pointer; transition: color 0.1s, border-color 0.1s; }
   .copy-btn:hover { color: var(--text); border-color: var(--text2); }
   .copy-btn.copied { color: var(--green); border-color: var(--green); }
+  pre { padding: 16px; overflow-x: auto; font-size: 13px; line-height: 1.65; tab-size: 4; }
 
-  pre {
-    padding: 16px;
-    overflow-x: auto;
-    font-size: 13px;
-    line-height: 1.65;
-    tab-size: 4;
-  }
+  .kw  { color: #c792ea; }
+  .fn  { color: #82aaff; }
+  .str { color: #c3e88d; }
+  .num { color: #f78c6c; }
+  .cmt { color: #546e7a; font-style: italic; }
+  .ty  { color: var(--amber); }
+  .op  { color: var(--text2); }
+  .var { color: var(--text); }
+  .prop{ color: #89ddff; }
+  .key { color: #ff9cac; }
 
-  /* Syntax highlight classes */
-  .kw  { color: #c792ea; }   /* keywords: local, function, end, return, not, and, or, if, then, else */
-  .fn  { color: #82aaff; }   /* function names */
-  .str { color: #c3e88d; }   /* strings */
-  .num { color: #f78c6c; }   /* numbers */
-  .cmt { color: #546e7a; font-style: italic; } /* comments */
-  .ty  { color: var(--amber); }  /* types / constructors */
-  .op  { color: var(--text2); }  /* operators / punctuation */
-  .var { color: var(--text); }   /* variables */
-  .prop{ color: #89ddff; }   /* property access */
+  code { background: var(--panel); border: 1px solid var(--border); border-radius: 2px; padding: 1px 6px; font-size: 13px; color: var(--accent); font-family: var(--mono); }
 
-  /* inline code */
-  code {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    padding: 1px 6px;
-    font-size: 13px;
-    color: var(--accent);
-    font-family: var(--mono);
-  }
-
-  /* ── API reference cards ── */
-  .api-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    margin-bottom: 12px;
-    overflow: hidden;
-  }
-
-  .api-card-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px 16px;
-    background: var(--panel);
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
-    user-select: none;
-  }
-
+  .api-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; margin-bottom: 12px; overflow: hidden; }
+  .api-card-header { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: var(--panel); border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; }
   .api-card-header:hover { background: var(--bg3); }
-
-  .api-method-badge {
-    flex-shrink: 0;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 7px;
-    border-radius: 2px;
-    margin-top: 2px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-family: var(--sans);
-  }
-  .badge-fn   { background: #6495ed22; color: var(--accent); border: 1px solid var(--accent); }
-  .badge-ret  { background: #4ec99422; color: var(--green);  border: 1px solid var(--green); }
-
-  .api-sig {
-    flex: 1;
-    font-size: 13px;
-    color: var(--text);
-    line-height: 1.4;
-  }
-
-  .api-sig .api-name { color: var(--accent); font-weight: 500; }
+  .api-method-badge { flex-shrink: 0; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 2px; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; font-family: var(--sans); }
+  .badge-fn  { background: #6495ed22; color: var(--accent); border: 1px solid var(--accent); }
+  .badge-cfg { background: #4ec99422; color: var(--green);  border: 1px solid var(--green); }
+  .api-sig { flex: 1; font-size: 13px; color: var(--text); line-height: 1.4; }
+  .api-sig .api-name  { color: var(--accent); font-weight: 500; }
   .api-sig .api-param { color: var(--amber); }
   .api-sig .api-type  { color: var(--text3); font-size: 12px; }
-
-  .api-card-body {
-    padding: 14px 16px;
-    display: none;
-  }
+  .api-sig .api-key   { color: #ff9cac; }
+  .api-card-body { padding: 14px 16px; display: none; }
   .api-card-body.open { display: block; }
+  .api-card-body p { color: var(--text2); margin-bottom: 10px; font-size: 13px; }
 
-  .api-card-body p {
-    color: var(--text2);
-    margin-bottom: 10px;
-    font-size: 13px;
-  }
-
-  .param-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-    margin-top: 8px;
-  }
-
-  .param-table th {
-    text-align: left;
-    padding: 6px 10px;
-    color: var(--text3);
-    font-weight: 500;
-    border-bottom: 1px solid var(--border);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: var(--sans);
-  }
-
-  .param-table td {
-    padding: 7px 10px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-    line-height: 1.5;
-  }
-
+  .param-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+  .param-table th { text-align: left; padding: 6px 10px; color: var(--text3); font-weight: 500; border-bottom: 1px solid var(--border); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-family: var(--sans); }
+  .param-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
   .param-table tr:last-child td { border-bottom: none; }
   .param-table td:first-child { color: var(--amber); white-space: nowrap; }
   .param-table td:nth-child(2) { color: var(--accent); white-space: nowrap; }
   .param-table td:nth-child(3) { color: var(--text2); }
+  .param-table td .key-tag { color: #ff9cac; }
 
-  /* ── Info / warning boxes ── */
-  .callout {
-    display: flex;
-    gap: 12px;
-    padding: 14px 16px;
-    border-radius: 4px;
-    margin: 16px 0;
-    font-size: 13px;
-    line-height: 1.6;
-  }
+  .callout { display: flex; gap: 12px; padding: 14px 16px; border-radius: 4px; margin: 16px 0; font-size: 13px; line-height: 1.6; }
   .callout-icon { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
   .callout-info  { background: #6495ed12; border: 1px solid #6495ed40; color: var(--text2); }
   .callout-warn  { background: #e8a84012; border: 1px solid #e8a84040; color: var(--text2); }
@@ -399,606 +117,480 @@
   .callout-warn  .callout-icon { color: var(--amber); }
   .callout-tip   .callout-icon { color: var(--green); }
 
-  /* ── Theme table ── */
-  .theme-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 8px;
-    margin: 16px 0;
-  }
+  .theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin: 16px 0; }
+  .theme-row-item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: var(--bg2); border: 1px solid var(--border); border-radius: 3px; font-size: 12px; }
+  .color-dot { width: 14px; height: 14px; border-radius: 2px; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.1); }
+  .theme-key { color: var(--amber); }
+  .theme-val { color: var(--text3); font-size: 11px; margin-left: auto; }
 
-  .theme-row-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 12px;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    font-size: 12px;
-  }
-
-  .color-dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 2px;
-    flex-shrink: 0;
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .theme-key  { color: var(--amber); }
-  .theme-val  { color: var(--text3); font-size: 11px; margin-left: auto; }
-
-  /* ── Return object table ── */
-  .return-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-    margin: 10px 0;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .return-table th { background: var(--panel); padding: 7px 12px; text-align: left; color: var(--text3); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-family: var(--sans); }
-  .return-table td { padding: 7px 12px; border-top: 1px solid var(--border); }
-  .return-table td:first-child { color: var(--green); white-space: nowrap; }
-  .return-table td:nth-child(2) { color: var(--text2); }
-
-  /* ── Subsection ── */
   .subsection { margin-bottom: 40px; }
-  .subsection h3 {
-    font-family: var(--sans);
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 12px;
-    padding-left: 10px;
-    border-left: 3px solid var(--accent);
-  }
+  .subsection h3 { font-family: var(--sans); font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 12px; padding-left: 10px; border-left: 3px solid var(--accent); }
 
-  /* ── Footer ── */
-  footer {
-    margin-top: 80px;
-    padding: 24px 0;
-    border-top: 1px solid var(--border);
-    color: var(--text3);
-    font-size: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  .cfg-flow { display: flex; flex-direction: column; gap: 8px; margin: 16px 0; }
+  .cfg-step { display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; }
+  .cfg-step-num { width: 22px; height: 22px; min-width: 22px; background: var(--accent-dim); border: 1px solid var(--accent); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--accent); font-family: var(--sans); margin-top: 1px; }
+  .cfg-step-body { flex: 1; }
+  .cfg-step-body strong { color: var(--text); font-size: 13px; display: block; margin-bottom: 3px; }
+  .cfg-step-body span { color: var(--text2); font-size: 12px; }
 
+  footer { margin-top: 80px; padding: 24px 0; border-top: 1px solid var(--border); color: var(--text3); font-size: 12px; display: flex; justify-content: space-between; align-items: center; }
   footer span { color: var(--accent); }
 </style>
 </head>
 <body>
-
 <div class="layout">
 
-  <!-- ── Sidebar ── -->
-  <aside class="sidebar">
-    <div class="sidebar-logo">
-      <b class="wordmark">ImGuiLib</b>
-      <small class="version">v1.0.0 — Luau / Roblox</small>
+<!-- ── Sidebar ── -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <b class="wordmark">ImGuiLib</b>
+    <small class="version">v1.0.0 — Luau / Roblox</small>
+  </div>
+  <span class="nav-section">Getting Started</span>
+  <a class="nav-item active" href="#installation">Installation</a>
+  <a class="nav-item" href="#quickstart">Quick Start</a>
+  <span class="nav-section">Window</span>
+  <a class="nav-item" href="#createwindow">CreateWindow</a>
+  <a class="nav-item" href="#window-api">Window API</a>
+  <span class="nav-section">Tabs</span>
+  <a class="nav-item" href="#tabs">AddTab</a>
+  <span class="nav-section">Widgets</span>
+  <a class="nav-item" href="#addtext">AddText</a>
+  <a class="nav-item" href="#addbutton">AddButton</a>
+  <a class="nav-item" href="#addcheckbox">AddCheckbox</a>
+  <a class="nav-item" href="#addradiogroup">AddRadioGroup</a>
+  <a class="nav-item" href="#addslider">AddSlider</a>
+  <a class="nav-item" href="#addinputtext">AddInputText</a>
+  <a class="nav-item" href="#addinputnum">AddInputInt / Float</a>
+  <a class="nav-item" href="#addcombo">AddCombo</a>
+  <a class="nav-item" href="#addcoloredit">AddColorEdit</a>
+  <a class="nav-item" href="#addlistbox">AddListbox</a>
+  <a class="nav-item" href="#addcollapsing">AddCollapsingHeader</a>
+  <a class="nav-item" href="#addseparator">AddSeparator</a>
+  <span class="nav-section">Config System</span>
+  <a class="nav-item" href="#config-keys">Widget Keys</a>
+  <a class="nav-item" href="#config-saveload">Save &amp; Load</a>
+  <a class="nav-item" href="#config-autosave">Auto-Save</a>
+  <a class="nav-item" href="#config-api">Config API</a>
+  <span class="nav-section">Theming</span>
+  <a class="nav-item" href="#theming">SetTheme</a>
+  <a class="nav-item" href="#theme-keys">Theme Keys</a>
+  <span class="nav-section">Reference</span>
+  <a class="nav-item" href="#keybind">Keybind</a>
+  <a class="nav-item" href="#full-example">Full Example</a>
+</aside>
+
+<!-- ── Main ── -->
+<main>
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-tag">Documentation</div>
+    <h1>Imgui<span>Lib</span></h1>
+    <p>A faithful Dear ImGui-styled UI library for Roblox Luau. Dense, flat, monospace — built for scripts, exploits, and developer tools. Now with a full config save/load system.</p>
+    <div class="badge-row">
+      <span class="badge badge-blue">Luau</span>
+      <span class="badge badge-green">Roblox</span>
+      <span class="badge badge-amber">Dear ImGui Style</span>
     </div>
+  </div>
 
-    <span class="nav-section">Getting Started</span>
-    <a class="nav-item active" href="#installation">Installation</a>
-    <a class="nav-item" href="#quickstart">Quick Start</a>
-
-    <span class="nav-section">Window</span>
-    <a class="nav-item" href="#createwindow">CreateWindow</a>
-    <a class="nav-item" href="#window-api">Window API</a>
-
-    <span class="nav-section">Tabs</span>
-    <a class="nav-item" href="#tabs">AddTab</a>
-
-    <span class="nav-section">Widgets</span>
-    <a class="nav-item" href="#addtext">AddText</a>
-    <a class="nav-item" href="#addbutton">AddButton</a>
-    <a class="nav-item" href="#addcheckbox">AddCheckbox</a>
-    <a class="nav-item" href="#addradiogroup">AddRadioGroup</a>
-    <a class="nav-item" href="#addslider">AddSlider</a>
-    <a class="nav-item" href="#addinputtext">AddInputText</a>
-    <a class="nav-item" href="#addinputnum">AddInputInt / Float</a>
-    <a class="nav-item" href="#addcombo">AddCombo</a>
-    <a class="nav-item" href="#addcoloredit">AddColorEdit</a>
-    <a class="nav-item" href="#addlistbox">AddListbox</a>
-    <a class="nav-item" href="#addcollapsing">AddCollapsingHeader</a>
-    <a class="nav-item" href="#addseparator">AddSeparator</a>
-
-    <span class="nav-section">Theming</span>
-    <a class="nav-item" href="#theming">SetTheme</a>
-    <a class="nav-item" href="#theme-keys">Theme Keys</a>
-
-    <span class="nav-section">Reference</span>
-    <a class="nav-item" href="#keybind">Keybind</a>
-    <a class="nav-item" href="#full-example">Full Example</a>
-  </aside>
-
-  <!-- ── Main ── -->
-  <main>
-    <!-- Hero -->
-    <div class="hero">
-      <div class="hero-tag">Documentation</div>
-      <h1>Imgui<span>Lib</span></h1>
-      <p>A faithful Dear ImGui-styled UI library for Roblox Luau. Dense, flat, monospace — built for scripts, exploits, and developer tools.</p>
-      <div class="badge-row">
-        <span class="badge badge-blue">Luau</span>
-        <span class="badge badge-green">Roblox</span>
-        <span class="badge badge-amber">Dear ImGui Style</span>
-      </div>
+  <!-- Installation -->
+  <section class="section" id="installation">
+    <div class="section-header"><span class="section-num">01</span><h2>Installation</h2></div>
+    <p>Load the library at the top of your script using <code>loadstring</code> and <code>HttpGet</code>.</p>
+    <div class="code-block">
+      <div class="code-block-header"><span class="lang">Luau</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <pre><span class="kw">local</span> <span class="var">ImGui</span> <span class="op">=</span> <span class="fn">loadstring</span><span class="op">(</span><span class="fn">game</span><span class="op">:</span><span class="fn">HttpGet</span><span class="op">(</span>
+    <span class="str">"https://gist.githubusercontent.com/swapemc/5471fafc4ab020982e882d243fbbdf4d/raw/574f5fd2c654a9e0d20747290e3084bb56dea591/gistfile1.txt"</span>
+<span class="op">))()</span></pre>
     </div>
+    <div class="callout callout-info">
+      <span class="callout-icon">&#9432;</span>
+      <div>The library attempts to parent its ScreenGui to <code>CoreGui</code> first (exploit environments), and falls back to <code>PlayerGui</code> automatically.</div>
+    </div>
+  </section>
 
-    <!-- ── Installation ── -->
-    <section class="section" id="installation">
-      <div class="section-header">
-        <span class="section-num">01</span>
-        <h2>Installation</h2>
-      </div>
-      <p>Load the library at the top of your script using <code>loadstring</code> and an HTTP request to wherever you host the file.</p>
-      <div class="code-block">
-        <div class="code-block-header">
-          <span class="lang">Luau</span>
-          <button class="copy-btn" onclick="copyCode(this)">copy</button>
-        </div>
-        <pre><span class="kw">local</span> <span class="var">ImGui</span> <span class="op">=</span> <span class="fn">loadstring</span><span class="op">(</span><span class="fn">game</span><span class="op">:</span><span class="fn">HttpGet</span><span class="op">(</span><span class="str">"https://gist.githubusercontent.com/swapemc/c3ae8c632560c82180062a7bd6435360/raw/7a24509268982464b96ce28adf94c446d8381435/gistfile1.txt"</span><span class="op">))()</span></pre>
-      </div>
-      <div class="callout callout-info">
-        <span class="callout-icon">&#9432;</span>
-        <div>The library attempts to parent its ScreenGui to <code>CoreGui</code> first (exploit environments), and falls back to <code>PlayerGui</code> automatically.</div>
-      </div>
-    </section>
+  <!-- Quick Start -->
+  <section class="section" id="quickstart">
+    <div class="section-header"><span class="section-num">02</span><h2>Quick Start</h2></div>
+    <p>Create a window, add a tab, add widgets. Assign <code>key</code> strings to any widget you want to persist across sessions.</p>
+    <div class="code-block">
+      <div class="code-block-header"><span class="lang">Luau</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <pre><span class="kw">local</span> <span class="var">ImGui</span> <span class="op">=</span> <span class="fn">loadstring</span><span class="op">(</span><span class="fn">game</span><span class="op">:</span><span class="fn">HttpGet</span><span class="op">(</span><span class="str">"..."</span><span class="op">))()</span>
 
-    <!-- ── Quick Start ── -->
-    <section class="section" id="quickstart">
-      <div class="section-header">
-        <span class="section-num">02</span>
-        <h2>Quick Start</h2>
-      </div>
-      <p>Create a window, add a tab, then add widgets to the tab. Everything chains off the objects returned.</p>
-      <div class="code-block">
-        <div class="code-block-header">
-          <span class="lang">Luau</span>
-          <button class="copy-btn" onclick="copyCode(this)">copy</button>
-        </div>
-        <pre><span class="kw">local</span> <span class="var">ImGui</span> <span class="op">=</span> <span class="fn">loadstring</span><span class="op">(</span><span class="fn">game</span><span class="op">:</span><span class="fn">HttpGet</span><span class="op">(</span><span class="str">"https://gist.githubusercontent.com/swapemc/c3ae8c632560c82180062a7bd6435360/raw/7a24509268982464b96ce28adf94c446d8381435/gistfile1.txt"</span><span class="op">))()</span>
-
-<span class="cmt">-- 1. Create a window</span>
 <span class="kw">local</span> <span class="var">Window</span> <span class="op">=</span> <span class="var">ImGui</span><span class="op">.</span><span class="fn">CreateWindow</span><span class="op">(</span><span class="str">"My Tool"</span><span class="op">)</span>
+<span class="kw">local</span> <span class="var">Tab</span>    <span class="op">=</span> <span class="var">Window</span><span class="op">:</span><span class="fn">AddTab</span><span class="op">(</span><span class="str">"Main"</span><span class="op">)</span>
 
-<span class="cmt">-- 2. Add a tab</span>
-<span class="kw">local</span> <span class="var">Tab</span> <span class="op">=</span> <span class="var">Window</span><span class="op">:</span><span class="fn">AddTab</span><span class="op">(</span><span class="str">"Main"</span><span class="op">)</span>
+<span class="cmt">-- widgets with a key are saved/loaded automatically</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddCheckbox</span><span class="op">(</span><span class="str">"God Mode"</span><span class="op">,</span> <span class="kw">false</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">,</span> <span class="key">"godmode"</span><span class="op">)</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddSliderInt</span><span class="op">(</span><span class="str">"Walk Speed"</span><span class="op">,</span> <span class="num">0</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="num">16</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">,</span> <span class="key">"walkspeed"</span><span class="op">)</span>
 
-<span class="cmt">-- 3. Add widgets to the tab</span>
-<span class="var">Tab</span><span class="op">:</span><span class="fn">AddText</span><span class="op">(</span><span class="str">"Hello, world!"</span><span class="op">)</span>
+<span class="cmt">-- load saved config, then enable auto-save on every change</span>
+<span class="var">Window</span><span class="op">:</span><span class="fn">LoadConfig</span><span class="op">(</span><span class="str">"default"</span><span class="op">)</span>
+<span class="var">Window</span><span class="op">:</span><span class="fn">EnableAutoSave</span><span class="op">(</span><span class="str">"default"</span><span class="op">)</span></pre>
+    </div>
+  </section>
 
-<span class="var">Tab</span><span class="op">:</span><span class="fn">AddButton</span><span class="op">(</span><span class="str">"Click me"</span><span class="op">,</span> <span class="kw">function</span><span class="op">()</span>
-    <span class="fn">print</span><span class="op">(</span><span class="str">"Clicked!"</span><span class="op">)</span>
-<span class="kw">end</span><span class="op">)</span>
-
-<span class="var">Tab</span><span class="op">:</span><span class="fn">AddToggle</span><span class="op">(</span><span class="str">"God Mode"</span><span class="op">,</span> <span class="kw">false</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">value</span><span class="op">)</span>
-    <span class="fn">print</span><span class="op">(</span><span class="str">"God mode:"</span><span class="op">,</span> <span class="var">value</span><span class="op">)</span>
-<span class="kw">end</span><span class="op">)</span></pre>
-      </div>
-    </section>
-
-    <!-- ── CreateWindow ── -->
-    <section class="section" id="createwindow">
-      <div class="section-header">
-        <span class="section-num">03</span>
-        <h2>CreateWindow</h2>
-      </div>
-      <p>The entry point of the library. Returns a <code>Window</code> object.</p>
-
-      <div class="code-block">
-        <div class="code-block-header"><span class="lang">Signature</span></div>
-        <pre><span class="var">ImGui</span><span class="op">.</span><span class="fn">CreateWindow</span><span class="op">(</span><span class="var">title</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">options</span><span class="op">?:</span> <span class="ty">table</span><span class="op">) →</span> <span class="ty">Window</span></pre>
-      </div>
-
-      <table class="param-table">
-        <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
-        <tbody>
-          <tr><td>title</td><td>string</td><td>Text shown in the title bar.</td></tr>
-          <tr><td>options.Width</td><td>number?</td><td>Window width in pixels. Default: <code>430</code></td></tr>
-          <tr><td>options.Height</td><td>number?</td><td>Window height in pixels. Default: <code>480</code></td></tr>
-          <tr><td>options.Position</td><td>UDim2?</td><td>Initial screen position. Default: centered.</td></tr>
-          <tr><td>options.ToggleKey</td><td>Enum.KeyCode?</td><td>Key to show/hide the window. Default: <code>RightShift</code></td></tr>
-        </tbody>
-      </table>
-
-      <div class="code-block">
-        <div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-        <pre><span class="kw">local</span> <span class="var">Window</span> <span class="op">=</span> <span class="var">ImGui</span><span class="op">.</span><span class="fn">CreateWindow</span><span class="op">(</span><span class="str">"My Tool"</span><span class="op">, {</span>
+  <!-- CreateWindow -->
+  <section class="section" id="createwindow">
+    <div class="section-header"><span class="section-num">03</span><h2>CreateWindow</h2></div>
+    <p>Entry point of the library. Returns a <code>Window</code> object.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
+    <pre><span class="var">ImGui</span><span class="op">.</span><span class="fn">CreateWindow</span><span class="op">(</span><span class="var">title</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">options</span><span class="op">?:</span> <span class="ty">table</span><span class="op">) →</span> <span class="ty">Window</span></pre></div>
+    <table class="param-table">
+      <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>title</td><td>string</td><td>Text shown in the title bar.</td></tr>
+        <tr><td>options.Width</td><td>number?</td><td>Window width in pixels. Default: <code>430</code></td></tr>
+        <tr><td>options.Height</td><td>number?</td><td>Window height in pixels. Default: <code>480</code></td></tr>
+        <tr><td>options.Position</td><td>UDim2?</td><td>Initial screen position. Default: centered.</td></tr>
+        <tr><td>options.ToggleKey</td><td>KeyCode?</td><td>Key to show/hide the window. Default: <code>RightShift</code></td></tr>
+      </tbody>
+    </table>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="kw">local</span> <span class="var">Window</span> <span class="op">=</span> <span class="var">ImGui</span><span class="op">.</span><span class="fn">CreateWindow</span><span class="op">(</span><span class="str">"My Tool"</span><span class="op">, {</span>
     <span class="var">Width</span>     <span class="op">=</span> <span class="num">500</span><span class="op">,</span>
     <span class="var">Height</span>    <span class="op">=</span> <span class="num">600</span><span class="op">,</span>
     <span class="var">Position</span>  <span class="op">=</span> <span class="ty">UDim2</span><span class="op">.</span><span class="fn">new</span><span class="op">(</span><span class="num">0.5</span><span class="op">, -</span><span class="num">250</span><span class="op">,</span> <span class="num">0.5</span><span class="op">, -</span><span class="num">300</span><span class="op">),</span>
     <span class="var">ToggleKey</span> <span class="op">=</span> <span class="ty">Enum</span><span class="op">.</span><span class="ty">KeyCode</span><span class="op">.</span><span class="var">Insert</span><span class="op">,</span>
-<span class="op">})</span></pre>
-      </div>
-    </section>
+<span class="op">})</span></pre></div>
+  </section>
 
-    <!-- ── Window API ── -->
-    <section class="section" id="window-api">
-      <div class="section-header">
-        <span class="section-num">04</span>
-        <h2>Window API</h2>
-      </div>
-      <p>Methods available on the <code>Window</code> object returned by <code>CreateWindow</code>.</p>
+  <!-- Window API -->
+  <section class="section" id="window-api">
+    <div class="section-header"><span class="section-num">04</span><h2>Window API</h2></div>
+    <p>Methods available on the <code>Window</code> object. Config methods are covered in the <a href="#config-api" style="color:var(--accent)">Config API</a> section.</p>
+    <div class="api-card"><div class="api-card-header" onclick="toggleCard(this)"><span class="api-method-badge badge-fn">method</span><div class="api-sig"><span class="api-name">Window:AddTab</span><span class="op">(</span><span class="api-param">name</span><span class="op">:</span> <span class="api-type">string</span><span class="op">) → Tab</span></div></div><div class="api-card-body"><p>Creates a new tab in the menu bar and returns a <code>Tab</code> object. The first tab added is auto-selected. If more tabs are added than fit in the bar, the bar scrolls horizontally.</p></div></div>
+    <div class="api-card"><div class="api-card-header" onclick="toggleCard(this)"><span class="api-method-badge badge-fn">method</span><div class="api-sig"><span class="api-name">Window:SelectTab</span><span class="op">(</span><span class="api-param">name</span><span class="op">:</span> <span class="api-type">string</span><span class="op">)</span></div></div><div class="api-card-body"><p>Programmatically switches to the tab with the given name.</p></div></div>
+    <div class="api-card"><div class="api-card-header" onclick="toggleCard(this)"><span class="api-method-badge badge-fn">method</span><div class="api-sig"><span class="api-name">Window:Toggle</span><span class="op">()</span></div></div><div class="api-card-body"><p>Toggles the window's visibility. Also triggered by the keybind.</p></div></div>
+    <div class="api-card"><div class="api-card-header" onclick="toggleCard(this)"><span class="api-method-badge badge-fn">method</span><div class="api-sig"><span class="api-name">Window:SetVisible</span><span class="op">(</span><span class="api-param">visible</span><span class="op">:</span> <span class="api-type">boolean</span><span class="op">)</span></div></div><div class="api-card-body"><p>Sets visibility directly without toggling.</p></div></div>
+    <div class="api-card"><div class="api-card-header" onclick="toggleCard(this)"><span class="api-method-badge badge-fn">method</span><div class="api-sig"><span class="api-name">Window:SetToggleKey</span><span class="op">(</span><span class="api-param">key</span><span class="op">:</span> <span class="api-type">Enum.KeyCode</span><span class="op">)</span></div></div><div class="api-card-body"><p>Changes the keybind used to show/hide the window at runtime.</p></div></div>
+    <div class="api-card"><div class="api-card-header" onclick="toggleCard(this)"><span class="api-method-badge badge-fn">method</span><div class="api-sig"><span class="api-name">Window:SetTheme</span><span class="op">(</span><span class="api-param">overrides</span><span class="op">:</span> <span class="api-type">table</span><span class="op">)</span></div></div><div class="api-card-body"><p>Applies colour overrides. Only keys you provide are changed. See the <a href="#theming" style="color:var(--accent)">Theming</a> section.</p></div></div>
+    <div class="api-card"><div class="api-card-header" onclick="toggleCard(this)"><span class="api-method-badge badge-fn">method</span><div class="api-sig"><span class="api-name">Window:Destroy</span><span class="op">()</span></div></div><div class="api-card-body"><p>Removes the ScreenGui and cleans up the window entirely.</p></div></div>
+  </section>
 
-      <div class="api-card">
-        <div class="api-card-header" onclick="toggleCard(this)">
-          <span class="api-method-badge badge-fn">method</span>
-          <div class="api-sig"><span class="api-name">Window:AddTab</span><span class="op">(</span><span class="api-param">name</span><span class="op">:</span> <span class="api-type">string</span><span class="op">) → Tab</span></div>
-        </div>
-        <div class="api-card-body">
-          <p>Creates a new tab in the menu bar and returns a <code>Tab</code> object you can add widgets to. The first tab added is auto-selected.</p>
-        </div>
-      </div>
-
-      <div class="api-card">
-        <div class="api-card-header" onclick="toggleCard(this)">
-          <span class="api-method-badge badge-fn">method</span>
-          <div class="api-sig"><span class="api-name">Window:SelectTab</span><span class="op">(</span><span class="api-param">name</span><span class="op">:</span> <span class="api-type">string</span><span class="op">)</span></div>
-        </div>
-        <div class="api-card-body">
-          <p>Programmatically switches to the tab with the given name.</p>
-        </div>
-      </div>
-
-      <div class="api-card">
-        <div class="api-card-header" onclick="toggleCard(this)">
-          <span class="api-method-badge badge-fn">method</span>
-          <div class="api-sig"><span class="api-name">Window:Toggle</span><span class="op">()</span></div>
-        </div>
-        <div class="api-card-body">
-          <p>Toggles the window's visibility. Also triggered by the keybind.</p>
-        </div>
-      </div>
-
-      <div class="api-card">
-        <div class="api-card-header" onclick="toggleCard(this)">
-          <span class="api-method-badge badge-fn">method</span>
-          <div class="api-sig"><span class="api-name">Window:SetVisible</span><span class="op">(</span><span class="api-param">visible</span><span class="op">:</span> <span class="api-type">boolean</span><span class="op">)</span></div>
-        </div>
-        <div class="api-card-body">
-          <p>Sets visibility directly without toggling.</p>
-        </div>
-      </div>
-
-      <div class="api-card">
-        <div class="api-card-header" onclick="toggleCard(this)">
-          <span class="api-method-badge badge-fn">method</span>
-          <div class="api-sig"><span class="api-name">Window:SetToggleKey</span><span class="op">(</span><span class="api-param">key</span><span class="op">:</span> <span class="api-type">Enum.KeyCode</span><span class="op">)</span></div>
-        </div>
-        <div class="api-card-body">
-          <p>Changes the keybind used to show/hide the window at runtime.</p>
-          <div class="code-block"><div class="code-block-header"><span class="lang">Example</span></div>
-          <pre><span class="var">Window</span><span class="op">:</span><span class="fn">SetToggleKey</span><span class="op">(</span><span class="ty">Enum</span><span class="op">.</span><span class="ty">KeyCode</span><span class="op">.</span><span class="var">Insert</span><span class="op">)</span></pre></div>
-        </div>
-      </div>
-
-      <div class="api-card">
-        <div class="api-card-header" onclick="toggleCard(this)">
-          <span class="api-method-badge badge-fn">method</span>
-          <div class="api-sig"><span class="api-name">Window:SetTheme</span><span class="op">(</span><span class="api-param">overrides</span><span class="op">:</span> <span class="api-type">table</span><span class="op">)</span></div>
-        </div>
-        <div class="api-card-body">
-          <p>Applies colour overrides to the window. Only the keys you provide are changed — unspecified keys keep their defaults. See the <a href="#theming" style="color:var(--accent)">Theming</a> section for all available keys.</p>
-        </div>
-      </div>
-
-      <div class="api-card">
-        <div class="api-card-header" onclick="toggleCard(this)">
-          <span class="api-method-badge badge-fn">method</span>
-          <div class="api-sig"><span class="api-name">Window:Destroy</span><span class="op">()</span></div>
-        </div>
-        <div class="api-card-body">
-          <p>Removes the ScreenGui and cleans up the window entirely.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Tabs ── -->
-    <section class="section" id="tabs">
-      <div class="section-header">
-        <span class="section-num">05</span>
-        <h2>Tabs</h2>
-      </div>
-      <p>Tabs are created on the <code>Window</code> and act as the container for all widgets. You can have as many tabs as you need — they render as buttons in the menu bar.</p>
-      <div class="code-block">
-        <div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-        <pre><span class="kw">local</span> <span class="var">MainTab</span>     <span class="op">=</span> <span class="var">Window</span><span class="op">:</span><span class="fn">AddTab</span><span class="op">(</span><span class="str">"Main"</span><span class="op">)</span>
+  <!-- Tabs -->
+  <section class="section" id="tabs">
+    <div class="section-header"><span class="section-num">05</span><h2>Tabs</h2></div>
+    <p>Tabs are created on the Window and act as containers for all widgets. They render as buttons in the menu bar.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="kw">local</span> <span class="var">MainTab</span>     <span class="op">=</span> <span class="var">Window</span><span class="op">:</span><span class="fn">AddTab</span><span class="op">(</span><span class="str">"Main"</span><span class="op">)</span>
 <span class="kw">local</span> <span class="var">CombatTab</span>   <span class="op">=</span> <span class="var">Window</span><span class="op">:</span><span class="fn">AddTab</span><span class="op">(</span><span class="str">"Combat"</span><span class="op">)</span>
-<span class="kw">local</span> <span class="var">SettingsTab</span> <span class="op">=</span> <span class="var">Window</span><span class="op">:</span><span class="fn">AddTab</span><span class="op">(</span><span class="str">"Settings"</span><span class="op">)</span>
+<span class="kw">local</span> <span class="var">SettingsTab</span> <span class="op">=</span> <span class="var">Window</span><span class="op">:</span><span class="fn">AddTab</span><span class="op">(</span><span class="str">"Settings"</span><span class="op">)</span></pre></div>
+  </section>
 
-<span class="cmt">-- Add widgets to each tab independently</span>
-<span class="var">MainTab</span><span class="op">:</span><span class="fn">AddText</span><span class="op">(</span><span class="str">"Main tab content"</span><span class="op">)</span>
-<span class="var">CombatTab</span><span class="op">:</span><span class="fn">AddText</span><span class="op">(</span><span class="str">"Combat tab content"</span><span class="op">)</span></pre>
-      </div>
-    </section>
+  <!-- AddText -->
+  <section class="section" id="addtext">
+    <div class="section-header"><span class="section-num">06</span><h2>AddText</h2></div>
+    <p>Renders a static text label. No key — text has no saveable state.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddText</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">disabled</span><span class="op">?:</span> <span class="ty">boolean</span><span class="op">) → { </span><span class="fn">SetText</span> <span class="op">}</span></pre></div>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddText</span><span class="op">(</span><span class="str">"Hello, world!"</span><span class="op">)</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddText</span><span class="op">(</span><span class="str">"Greyed out"</span><span class="op">,</span> <span class="kw">true</span><span class="op">)</span>
+<span class="kw">local</span> <span class="var">lbl</span> <span class="op">=</span> <span class="var">Tab</span><span class="op">:</span><span class="fn">AddText</span><span class="op">(</span><span class="str">"Score: 0"</span><span class="op">)</span>
+<span class="var">lbl</span><span class="op">:</span><span class="fn">SetText</span><span class="op">(</span><span class="str">"Score: 100"</span><span class="op">)</span></pre></div>
+  </section>
 
-    <!-- ── Widgets ── -->
+  <!-- AddButton -->
+  <section class="section" id="addbutton">
+    <div class="section-header"><span class="section-num">07</span><h2>AddButton</h2></div>
+    <p>A clickable button. Width auto-fits to the label. No key — buttons have no saveable state.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddButton</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">) → { </span><span class="fn">SetText</span><span class="op">,</span> <span class="fn">SetCallback</span> <span class="op">}</span></pre></div>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddButton</span><span class="op">(</span><span class="str">"Teleport"</span><span class="op">,</span> <span class="kw">function</span><span class="op">() </span><span class="fn">print</span><span class="op">(</span><span class="str">"clicked"</span><span class="op">) </span><span class="kw">end</span><span class="op">)</span></pre></div>
+  </section>
 
-    <!-- AddText -->
-    <section class="section" id="addtext">
-      <div class="section-header"><span class="section-num">06</span><h2>AddText</h2></div>
-      <p>Renders a static text label. Useful for section headings or descriptions.</p>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddText</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">disabled</span><span class="op">?:</span> <span class="ty">boolean</span><span class="op">) →</span> <span class="op">{ </span><span class="fn">SetText</span><span class="op">:</span> <span class="ty">function</span> <span class="op">}</span></pre></div>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddText</span><span class="op">(</span><span class="str">"Hello, world!"</span><span class="op">)</span>
-<span class="var">Tab</span><span class="op">:</span><span class="fn">AddText</span><span class="op">(</span><span class="str">"This is greyed out"</span><span class="op">,</span> <span class="kw">true</span><span class="op">)</span>  <span class="cmt">-- disabled/dim colour</span>
-
-<span class="kw">local</span> <span class="var">label</span> <span class="op">=</span> <span class="var">Tab</span><span class="op">:</span><span class="fn">AddText</span><span class="op">(</span><span class="str">"Score: 0"</span><span class="op">)</span>
-<span class="var">label</span><span class="op">:</span><span class="fn">SetText</span><span class="op">(</span><span class="str">"Score: 100"</span><span class="op">)</span>  <span class="cmt">-- update later</span></pre></div>
-    </section>
-
-    <!-- AddButton -->
-    <section class="section" id="addbutton">
-      <div class="section-header"><span class="section-num">07</span><h2>AddButton</h2></div>
-      <p>A clickable button. Width auto-fits to the label text, ImGui-style.</p>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddButton</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">) →</span> <span class="op">{ </span><span class="fn">SetText</span><span class="op">,</span> <span class="fn">SetCallback</span> <span class="op">}</span></pre></div>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddButton</span><span class="op">(</span><span class="str">"Teleport to Spawn"</span><span class="op">,</span> <span class="kw">function</span><span class="op">()</span>
-    <span class="kw">local</span> <span class="var">spawn</span> <span class="op">=</span> <span class="fn">workspace</span><span class="op">:</span><span class="fn">FindFirstChild</span><span class="op">(</span><span class="str">"SpawnLocation"</span><span class="op">)</span>
-    <span class="kw">if</span> <span class="var">spawn</span> <span class="kw">then</span>
-        <span class="fn">game</span><span class="op">.</span><span class="var">Players</span><span class="op">.</span><span class="var">LocalPlayer</span><span class="op">.</span><span class="var">Character</span><span class="op">.</span><span class="var">HumanoidRootPart</span><span class="op">.</span><span class="var">CFrame</span>
-            <span class="op">=</span> <span class="var">spawn</span><span class="op">.</span><span class="var">CFrame</span>
-    <span class="kw">end</span>
-<span class="kw">end</span><span class="op">)</span></pre></div>
-    </section>
-
-    <!-- AddCheckbox -->
-    <section class="section" id="addcheckbox">
-      <div class="section-header"><span class="section-num">08</span><h2>AddCheckbox</h2></div>
-      <p>A boolean toggle rendered as a small square checkbox, identical to Dear ImGui's checkbox widget.</p>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddCheckbox</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">boolean</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">)</span>
+  <!-- AddCheckbox -->
+  <section class="section" id="addcheckbox">
+    <div class="section-header"><span class="section-num">08</span><h2>AddCheckbox</h2></div>
+    <p>A boolean toggle rendered as a small square checkbox.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddCheckbox</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">boolean</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">,</span> <span class="key">key</span><span class="op">?:</span> <span class="ty">string</span><span class="op">)</span>
     <span class="op">→ { </span><span class="fn">GetValue</span><span class="op">,</span> <span class="fn">SetValue</span><span class="op">,</span> <span class="fn">SetCallback</span> <span class="op">}</span></pre></div>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-      <pre><span class="kw">local</span> <span class="var">godMode</span> <span class="op">=</span> <span class="var">Tab</span><span class="op">:</span><span class="fn">AddCheckbox</span><span class="op">(</span><span class="str">"God Mode"</span><span class="op">,</span> <span class="kw">false</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">value</span><span class="op">)</span>
-    <span class="kw">local</span> <span class="var">char</span> <span class="op">=</span> <span class="fn">game</span><span class="op">.</span><span class="var">Players</span><span class="op">.</span><span class="var">LocalPlayer</span><span class="op">.</span><span class="var">Character</span>
-    <span class="kw">if</span> <span class="var">char</span> <span class="kw">then</span>
-        <span class="var">char</span><span class="op">.</span><span class="var">Humanoid</span><span class="op">.</span><span class="var">MaxHealth</span> <span class="op">=</span> <span class="var">value</span> <span class="kw">and</span> <span class="ty">math</span><span class="op">.</span><span class="fn">huge</span> <span class="kw">or</span> <span class="num">100</span>
-    <span class="kw">end</span>
-<span class="kw">end</span><span class="op">)</span>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddCheckbox</span><span class="op">(</span><span class="str">"God Mode"</span><span class="op">,</span> <span class="kw">false</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">)</span>
+    <span class="kw">local</span> <span class="var">hum</span> <span class="op">=</span> <span class="fn">game</span><span class="op">.</span><span class="var">Players</span><span class="op">.</span><span class="var">LocalPlayer</span><span class="op">.</span><span class="var">Character</span><span class="op">.</span><span class="var">Humanoid</span>
+    <span class="var">hum</span><span class="op">.</span><span class="var">MaxHealth</span> <span class="op">=</span> <span class="var">v</span> <span class="kw">and</span> <span class="ty">math</span><span class="op">.</span><span class="fn">huge</span> <span class="kw">or</span> <span class="num">100</span>
+<span class="kw">end</span><span class="op">,</span> <span class="key">"godmode"</span><span class="op">)</span></pre></div>
+  </section>
 
-<span class="cmt">-- Read or set value later</span>
-<span class="fn">print</span><span class="op">(</span><span class="var">godMode</span><span class="op">:</span><span class="fn">GetValue</span><span class="op">())</span>
-<span class="var">godMode</span><span class="op">:</span><span class="fn">SetValue</span><span class="op">(</span><span class="kw">true</span><span class="op">)</span></pre></div>
-    </section>
-
-    <!-- AddRadioGroup -->
-    <section class="section" id="addradiogroup">
-      <div class="section-header"><span class="section-num">09</span><h2>AddRadioGroup</h2></div>
-      <p>Renders a horizontal row of mutually exclusive radio buttons — only one option can be selected at a time.</p>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddRadioGroup</span><span class="op">(</span><span class="var">items</span><span class="op">:</span> <span class="ty">table</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">)</span>
+  <!-- AddRadioGroup -->
+  <section class="section" id="addradiogroup">
+    <div class="section-header"><span class="section-num">09</span><h2>AddRadioGroup</h2></div>
+    <p>A row of mutually exclusive radio buttons.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddRadioGroup</span><span class="op">(</span><span class="var">items</span><span class="op">:</span> <span class="ty">table</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">,</span> <span class="key">key</span><span class="op">?:</span> <span class="ty">string</span><span class="op">)</span>
     <span class="op">→ { </span><span class="fn">GetSelected</span><span class="op">,</span> <span class="fn">SetCallback</span> <span class="op">}</span></pre></div>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddRadioGroup</span><span class="op">(</span>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddRadioGroup</span><span class="op">(</span>
     <span class="op">{</span><span class="str">"radio a"</span><span class="op">,</span> <span class="str">"radio b"</span><span class="op">,</span> <span class="str">"radio c"</span><span class="op">},</span>
     <span class="str">"radio a"</span><span class="op">,</span>
-    <span class="kw">function</span><span class="op">(</span><span class="var">selected</span><span class="op">)</span>
-        <span class="fn">print</span><span class="op">(</span><span class="str">"Selected:"</span><span class="op">,</span> <span class="var">selected</span><span class="op">)</span>
-    <span class="kw">end</span>
+    <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">,</span>
+    <span class="key">"aimmode"</span>
 <span class="op">)</span></pre></div>
-    </section>
+  </section>
 
-    <!-- AddSlider -->
-    <section class="section" id="addslider">
-      <div class="section-header"><span class="section-num">10</span><h2>AddSliderInt / AddSliderFloat</h2></div>
-      <p>A draggable slider. The current value is printed inside the bar, just like Dear ImGui. <code>AddSliderInt</code> snaps to whole numbers; <code>AddSliderFloat</code> gives 3 decimal places.</p>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Signatures</span></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddSliderInt</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">min</span><span class="op">:</span> <span class="ty">number</span><span class="op">,</span> <span class="var">max</span><span class="op">:</span> <span class="ty">number</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">number</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">)</span>
+  <!-- AddSlider -->
+  <section class="section" id="addslider">
+    <div class="section-header"><span class="section-num">10</span><h2>AddSliderInt / AddSliderFloat</h2></div>
+    <p>A draggable slider. Value is printed inside the bar. <code>AddSliderInt</code> snaps to whole numbers; <code>AddSliderFloat</code> gives 3 decimal places.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Signatures</span></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddSliderInt</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">min</span><span class="op">:</span> <span class="ty">number</span><span class="op">,</span> <span class="var">max</span><span class="op">:</span> <span class="ty">number</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">number</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">,</span> <span class="key">key</span><span class="op">?:</span> <span class="ty">string</span><span class="op">)</span>
     <span class="op">→ { </span><span class="fn">GetValue</span><span class="op">,</span> <span class="fn">SetValue</span><span class="op">,</span> <span class="fn">SetCallback</span> <span class="op">}</span>
 
-<span class="var">Tab</span><span class="op">:</span><span class="fn">AddSliderFloat</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">min</span><span class="op">:</span> <span class="ty">number</span><span class="op">,</span> <span class="var">max</span><span class="op">:</span> <span class="ty">number</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">number</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">)</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddSliderFloat</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">min</span><span class="op">:</span> <span class="ty">number</span><span class="op">,</span> <span class="var">max</span><span class="op">:</span> <span class="ty">number</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">number</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">,</span> <span class="key">key</span><span class="op">?:</span> <span class="ty">string</span><span class="op">)</span>
     <span class="op">→ { </span><span class="fn">GetValue</span><span class="op">,</span> <span class="fn">SetValue</span><span class="op">,</span> <span class="fn">SetCallback</span> <span class="op">}</span></pre></div>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-      <pre><span class="kw">local</span> <span class="var">speed</span> <span class="op">=</span> <span class="var">Tab</span><span class="op">:</span><span class="fn">AddSliderInt</span><span class="op">(</span><span class="str">"Walk Speed"</span><span class="op">,</span> <span class="num">0</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="num">16</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">)</span>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddSliderInt</span><span class="op">(</span><span class="str">"Walk Speed"</span><span class="op">,</span> <span class="num">0</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="num">16</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">)</span>
     <span class="fn">game</span><span class="op">.</span><span class="var">Players</span><span class="op">.</span><span class="var">LocalPlayer</span><span class="op">.</span><span class="var">Character</span><span class="op">.</span><span class="var">Humanoid</span><span class="op">.</span><span class="var">WalkSpeed</span> <span class="op">=</span> <span class="var">v</span>
-<span class="kw">end</span><span class="op">)</span>
+<span class="kw">end</span><span class="op">,</span> <span class="key">"walkspeed"</span><span class="op">)</span>
 
-<span class="kw">local</span> <span class="var">fov</span> <span class="op">=</span> <span class="var">Tab</span><span class="op">:</span><span class="fn">AddSliderFloat</span><span class="op">(</span><span class="str">"FOV Size"</span><span class="op">,</span> <span class="num">0.0</span><span class="op">,</span> <span class="num">1.0</span><span class="op">,</span> <span class="num">0.5</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">)</span>
-    <span class="fn">print</span><span class="op">(</span><span class="str">"FOV:"</span><span class="op">,</span> <span class="var">v</span><span class="op">)</span>
-<span class="kw">end</span><span class="op">)</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddSliderFloat</span><span class="op">(</span><span class="str">"Gravity"</span><span class="op">,</span> <span class="num">0.0</span><span class="op">,</span> <span class="num">5.0</span><span class="op">,</span> <span class="num">1.0</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">)</span>
+    <span class="fn">workspace</span><span class="op">.</span><span class="var">Gravity</span> <span class="op">=</span> <span class="var">v</span> <span class="op">*</span> <span class="num">196.2</span>
+<span class="kw">end</span><span class="op">,</span> <span class="key">"gravity"</span><span class="op">)</span></pre></div>
+  </section>
 
-<span class="cmt">-- Set value programmatically</span>
-<span class="var">speed</span><span class="op">:</span><span class="fn">SetValue</span><span class="op">(</span><span class="num">32</span><span class="op">)</span>
-<span class="fn">print</span><span class="op">(</span><span class="var">fov</span><span class="op">:</span><span class="fn">GetValue</span><span class="op">())</span></pre></div>
-    </section>
-
-    <!-- AddInputText -->
-    <section class="section" id="addinputtext">
-      <div class="section-header"><span class="section-num">11</span><h2>AddInputText</h2></div>
-      <p>A single-line text input field. The callback fires on focus lost and optionally on every keystroke.</p>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddInputText</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">)</span>
+  <!-- AddInputText -->
+  <section class="section" id="addinputtext">
+    <div class="section-header"><span class="section-num">11</span><h2>AddInputText</h2></div>
+    <p>A single-line text input. Callback fires on focus lost. The second callback argument is <code>enterPressed: boolean</code>.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddInputText</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">,</span> <span class="key">key</span><span class="op">?:</span> <span class="ty">string</span><span class="op">)</span>
     <span class="op">→ { </span><span class="fn">GetText</span><span class="op">,</span> <span class="fn">SetText</span><span class="op">,</span> <span class="fn">SetCallback</span> <span class="op">}</span></pre></div>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-      <pre><span class="kw">local</span> <span class="var">nameBox</span> <span class="op">=</span> <span class="var">Tab</span><span class="op">:</span><span class="fn">AddInputText</span><span class="op">(</span><span class="str">"Target Player"</span><span class="op">,</span> <span class="str">""</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">text</span><span class="op">,</span> <span class="var">enterPressed</span><span class="op">)</span>
-    <span class="kw">if</span> <span class="var">enterPressed</span> <span class="kw">then</span>
-        <span class="fn">print</span><span class="op">(</span><span class="str">"Searching for:"</span><span class="op">,</span> <span class="var">text</span><span class="op">)</span>
-    <span class="kw">end</span>
-<span class="kw">end</span><span class="op">)</span></pre></div>
-      <div class="callout callout-tip">
-        <span class="callout-icon">&#10003;</span>
-        <div>The callback receives two arguments: <code>text</code> (current string) and <code>enterPressed</code> (bool — true when the user hit Enter to confirm).</div>
-      </div>
-    </section>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddInputText</span><span class="op">(</span><span class="str">"Target"</span><span class="op">,</span> <span class="str">""</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">t</span><span class="op">,</span> <span class="var">enter</span><span class="op">)</span>
+    <span class="kw">if</span> <span class="var">enter</span> <span class="kw">then</span> <span class="fn">print</span><span class="op">(</span><span class="str">"Confirmed:"</span><span class="op">,</span> <span class="var">t</span><span class="op">) </span><span class="kw">end</span>
+<span class="kw">end</span><span class="op">,</span> <span class="key">"target"</span><span class="op">)</span></pre></div>
+  </section>
 
-    <!-- AddInputInt / Float -->
-    <section class="section" id="addinputnum">
-      <div class="section-header"><span class="section-num">12</span><h2>AddInputInt / AddInputFloat</h2></div>
-      <p>Numeric inputs with <code>−</code> and <code>+</code> stepper buttons on either side, matching ImGui's <code>InputInt</code> / <code>InputFloat</code> widgets.</p>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Signatures</span></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddInputInt</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">number</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">,</span> <span class="var">step</span><span class="op">?:</span> <span class="ty">number</span><span class="op">)</span>
+  <!-- AddInputInt / Float -->
+  <section class="section" id="addinputnum">
+    <div class="section-header"><span class="section-num">12</span><h2>AddInputInt / AddInputFloat</h2></div>
+    <p>Numeric inputs with <code>−</code> and <code>+</code> stepper buttons. The optional <code>step</code> parameter controls how much the steppers change the value.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Signatures</span></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddInputInt</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">number</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">,</span> <span class="var">step</span><span class="op">?:</span> <span class="ty">number</span><span class="op">,</span> <span class="key">key</span><span class="op">?:</span> <span class="ty">string</span><span class="op">)</span>
     <span class="op">→ { </span><span class="fn">GetValue</span><span class="op">,</span> <span class="fn">SetValue</span><span class="op">,</span> <span class="fn">SetCallback</span> <span class="op">}</span>
 
-<span class="var">Tab</span><span class="op">:</span><span class="fn">AddInputFloat</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">number</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">,</span> <span class="var">step</span><span class="op">?:</span> <span class="ty">number</span><span class="op">)</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddInputFloat</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">number</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">,</span> <span class="var">step</span><span class="op">?:</span> <span class="ty">number</span><span class="op">,</span> <span class="key">key</span><span class="op">?:</span> <span class="ty">string</span><span class="op">)</span>
     <span class="op">→ { </span><span class="fn">GetValue</span><span class="op">,</span> <span class="fn">SetValue</span><span class="op">,</span> <span class="fn">SetCallback</span> <span class="op">}</span></pre></div>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-      <pre><span class="cmt">-- Integer, stepping by 5</span>
-<span class="var">Tab</span><span class="op">:</span><span class="fn">AddInputInt</span><span class="op">(</span><span class="str">"Kill Aura Range"</span><span class="op">,</span> <span class="num">20</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">)</span>
-    <span class="fn">print</span><span class="op">(</span><span class="str">"Range:"</span><span class="op">,</span> <span class="var">v</span><span class="op">)</span>
-<span class="kw">end</span><span class="op">,</span> <span class="num">5</span><span class="op">)</span>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddInputInt</span><span class="op">(</span><span class="str">"Range"</span><span class="op">,</span> <span class="num">20</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">,</span> <span class="num">5</span><span class="op">,</span> <span class="key">"range"</span><span class="op">)</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddInputFloat</span><span class="op">(</span><span class="str">"Scale"</span><span class="op">,</span> <span class="num">1.0</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">,</span> <span class="num">0.1</span><span class="op">,</span> <span class="key">"scale"</span><span class="op">)</span></pre></div>
+  </section>
 
-<span class="cmt">-- Float, stepping by 0.01</span>
-<span class="var">Tab</span><span class="op">:</span><span class="fn">AddInputFloat</span><span class="op">(</span><span class="str">"Gravity Scale"</span><span class="op">,</span> <span class="num">1.0</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">)</span>
-    <span class="fn">workspace</span><span class="op">.</span><span class="var">Gravity</span> <span class="op">=</span> <span class="var">v</span> <span class="op">*</span> <span class="num">196.2</span>
-<span class="kw">end</span><span class="op">,</span> <span class="num">0.01</span><span class="op">)</span></pre></div>
-    </section>
-
-    <!-- AddCombo -->
-    <section class="section" id="addcombo">
-      <div class="section-header"><span class="section-num">13</span><h2>AddCombo</h2></div>
-      <p>A dropdown combo box. Shows the selected value with a small arrow button; clicking opens a floating popup list.</p>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddCombo</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">options</span><span class="op">:</span> <span class="ty">table</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">)</span>
+  <!-- AddCombo -->
+  <section class="section" id="addcombo">
+    <div class="section-header"><span class="section-num">13</span><h2>AddCombo</h2></div>
+    <p>A dropdown combo box. The popup is parented to the window frame so it never gets clipped by scroll containers.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddCombo</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">options</span><span class="op">:</span> <span class="ty">table</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">,</span> <span class="key">key</span><span class="op">?:</span> <span class="ty">string</span><span class="op">)</span>
     <span class="op">→ { </span><span class="fn">GetSelected</span><span class="op">,</span> <span class="fn">SetCallback</span> <span class="op">}</span></pre></div>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddCombo</span><span class="op">(</span><span class="str">"Aim Part"</span><span class="op">, {</span><span class="str">"Head"</span><span class="op">,</span> <span class="str">"HumanoidRootPart"</span><span class="op">,</span> <span class="str">"Torso"</span><span class="op">},</span> <span class="str">"Head"</span><span class="op">,</span>
-    <span class="kw">function</span><span class="op">(</span><span class="var">selected</span><span class="op">)</span>
-        <span class="fn">print</span><span class="op">(</span><span class="str">"Aiming at:"</span><span class="op">,</span> <span class="var">selected</span><span class="op">)</span>
-    <span class="kw">end</span>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddCombo</span><span class="op">(</span><span class="str">"Aim Part"</span><span class="op">, {</span><span class="str">"Head"</span><span class="op">,</span><span class="str">"Torso"</span><span class="op">,</span><span class="str">"HumanoidRootPart"</span><span class="op">},</span> <span class="str">"Head"</span><span class="op">,</span>
+    <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">,</span>
+    <span class="key">"aimpart"</span>
 <span class="op">)</span></pre></div>
-    </section>
+  </section>
 
-    <!-- AddColorEdit -->
-    <section class="section" id="addcoloredit">
-      <div class="section-header"><span class="section-num">14</span><h2>AddColorEdit</h2></div>
-      <p>Displays a colour swatch and RGBA float values, matching ImGui's <code>ColorEdit4</code> widget. Click the swatch to open a colour picker (if extended in your implementation).</p>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddColorEdit</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">Color3</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">)</span>
+  <!-- AddColorEdit -->
+  <section class="section" id="addcoloredit">
+    <div class="section-header"><span class="section-num">14</span><h2>AddColorEdit</h2></div>
+    <p>Displays a colour swatch and RGBA float values. <code>Color3</code> values are serialised to JSON automatically by the config system.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddColorEdit</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">Color3</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">,</span> <span class="key">key</span><span class="op">?:</span> <span class="ty">string</span><span class="op">)</span>
     <span class="op">→ { </span><span class="fn">GetColor</span><span class="op">,</span> <span class="fn">SetColor</span><span class="op">,</span> <span class="fn">SetCallback</span> <span class="op">}</span></pre></div>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-      <pre><span class="kw">local</span> <span class="var">espColor</span> <span class="op">=</span> <span class="var">Tab</span><span class="op">:</span><span class="fn">AddColorEdit</span><span class="op">(</span><span class="str">"ESP Color"</span><span class="op">,</span>
-    <span class="ty">Color3</span><span class="op">.</span><span class="fn">fromRGB</span><span class="op">(</span><span class="num">255</span><span class="op">,</span> <span class="num">0</span><span class="op">,</span> <span class="num">0</span><span class="op">),</span>
-    <span class="kw">function</span><span class="op">(</span><span class="var">color</span><span class="op">)</span>
-        <span class="fn">print</span><span class="op">(</span><span class="var">color</span><span class="op">.</span><span class="var">R</span><span class="op">,</span> <span class="var">color</span><span class="op">.</span><span class="var">G</span><span class="op">,</span> <span class="var">color</span><span class="op">.</span><span class="var">B</span><span class="op">)</span>
-    <span class="kw">end</span>
-<span class="op">)</span>
-
-<span class="cmt">-- Set programmatically</span>
-<span class="var">espColor</span><span class="op">:</span><span class="fn">SetColor</span><span class="op">(</span><span class="ty">Color3</span><span class="op">.</span><span class="fn">fromRGB</span><span class="op">(</span><span class="num">0</span><span class="op">,</span> <span class="num">255</span><span class="op">,</span> <span class="num">0</span><span class="op">))</span></pre></div>
-    </section>
-
-    <!-- AddListbox -->
-    <section class="section" id="addlistbox">
-      <div class="section-header"><span class="section-num">15</span><h2>AddListbox</h2></div>
-      <p>A scrollable list of selectable items. The currently selected item is highlighted in ImGui's header blue.</p>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddListbox</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">items</span><span class="op">:</span> <span class="ty">table</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">,</span> <span class="var">visibleRows</span><span class="op">?:</span> <span class="ty">number</span><span class="op">)</span>
-    <span class="op">→ { </span><span class="fn">GetSelected</span><span class="op">,</span> <span class="fn">SetCallback</span> <span class="op">}</span></pre></div>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddListbox</span><span class="op">(</span><span class="str">"Players"</span><span class="op">, {</span><span class="str">"Alice"</span><span class="op">,</span> <span class="str">"Bob"</span><span class="op">,</span> <span class="str">"Charlie"</span><span class="op">,</span> <span class="str">"Dave"</span><span class="op">},</span>
-    <span class="str">"Alice"</span><span class="op">,</span>
-    <span class="kw">function</span><span class="op">(</span><span class="var">selected</span><span class="op">)</span>
-        <span class="fn">print</span><span class="op">(</span><span class="str">"Selected:"</span><span class="op">,</span> <span class="var">selected</span><span class="op">)</span>
-    <span class="kw">end</span><span class="op">,</span>
-    <span class="num">4</span>  <span class="cmt">-- show 4 rows before scrolling</span>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddColorEdit</span><span class="op">(</span><span class="str">"ESP Color"</span><span class="op">,</span> <span class="ty">Color3</span><span class="op">.</span><span class="fn">fromRGB</span><span class="op">(</span><span class="num">255</span><span class="op">,</span><span class="num">0</span><span class="op">,</span><span class="num">0</span><span class="op">),</span>
+    <span class="kw">function</span><span class="op">(</span><span class="var">c</span><span class="op">) </span><span class="fn">print</span><span class="op">(</span><span class="var">c</span><span class="op">.</span><span class="var">R</span><span class="op">,</span><span class="var">c</span><span class="op">.</span><span class="var">G</span><span class="op">,</span><span class="var">c</span><span class="op">.</span><span class="var">B</span><span class="op">) </span><span class="kw">end</span><span class="op">,</span>
+    <span class="key">"espcolor"</span>
 <span class="op">)</span></pre></div>
-    </section>
+  </section>
 
-    <!-- AddCollapsingHeader -->
-    <section class="section" id="addcollapsing">
-      <div class="section-header"><span class="section-num">16</span><h2>AddCollapsingHeader</h2></div>
-      <p>A collapsible section header. Returns a <code>Section</code> object — you can call any widget method on it, and those widgets will appear indented inside the collapsed region.</p>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddCollapsingHeader</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">defaultOpen</span><span class="op">?:</span> <span class="ty">boolean</span><span class="op">) →</span> <span class="ty">Section</span></pre></div>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-      <pre><span class="kw">local</span> <span class="var">section</span> <span class="op">=</span> <span class="var">Tab</span><span class="op">:</span><span class="fn">AddCollapsingHeader</span><span class="op">(</span><span class="str">"Aim Settings"</span><span class="op">,</span> <span class="kw">true</span><span class="op">)</span>
+  <!-- AddListbox -->
+  <section class="section" id="addlistbox">
+    <div class="section-header"><span class="section-num">15</span><h2>AddListbox</h2></div>
+    <p>A scrollable list of selectable items. No key support — listboxes are typically dynamically populated.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddListbox</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">items</span><span class="op">:</span> <span class="ty">table</span><span class="op">,</span> <span class="var">default</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">callback</span><span class="op">?:</span> <span class="ty">function</span><span class="op">,</span> <span class="var">visibleRows</span><span class="op">?:</span> <span class="ty">number</span><span class="op">)</span>
+    <span class="op">→ { </span><span class="fn">GetSelected</span><span class="op">,</span> <span class="fn">SetCallback</span> <span class="op">}</span></pre></div>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddListbox</span><span class="op">(</span><span class="str">"Players"</span><span class="op">, {</span><span class="str">"Alice"</span><span class="op">,</span><span class="str">"Bob"</span><span class="op">,</span><span class="str">"Charlie"</span><span class="op">},</span> <span class="str">"Alice"</span><span class="op">,</span>
+    <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">,</span> <span class="num">4</span><span class="op">)</span></pre></div>
+  </section>
 
-<span class="cmt">-- All widget methods work on the returned Section</span>
-<span class="var">section</span><span class="op">:</span><span class="fn">AddCheckbox</span><span class="op">(</span><span class="str">"Silent Aim"</span><span class="op">,</span> <span class="kw">false</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">)</span> <span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">)</span>
-<span class="var">section</span><span class="op">:</span><span class="fn">AddSliderInt</span><span class="op">(</span><span class="str">"Smoothness"</span><span class="op">,</span> <span class="num">0</span><span class="op">,</span> <span class="num">100</span><span class="op">,</span> <span class="num">50</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">)</span>
-<span class="var">section</span><span class="op">:</span><span class="fn">AddButton</span><span class="op">(</span><span class="str">"Reset"</span><span class="op">,</span> <span class="kw">function</span><span class="op">() </span><span class="fn">print</span><span class="op">(</span><span class="str">"Reset!"</span><span class="op">) </span><span class="kw">end</span><span class="op">)</span></pre></div>
-      <div class="callout callout-info">
-        <span class="callout-icon">&#9432;</span>
-        <div>The <code>Section</code> returned by <code>AddCollapsingHeader</code> supports every widget method: <code>AddText</code>, <code>AddButton</code>, <code>AddCheckbox</code>, <code>AddSliderInt</code>, <code>AddSliderFloat</code>, <code>AddInputText</code>, <code>AddInputInt</code>, <code>AddInputFloat</code>, <code>AddCombo</code>, <code>AddColorEdit</code>, <code>AddListbox</code>, <code>AddSeparator</code>, and even nested <code>AddCollapsingHeader</code>.</div>
-      </div>
-    </section>
+  <!-- AddCollapsingHeader -->
+  <section class="section" id="addcollapsing">
+    <div class="section-header"><span class="section-num">16</span><h2>AddCollapsingHeader</h2></div>
+    <p>Returns a <code>Section</code> — call any widget method on it. Widgets inside pass their keys through to the same window-level registry, so they save/load normally.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Signature</span></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddCollapsingHeader</span><span class="op">(</span><span class="var">text</span><span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="var">defaultOpen</span><span class="op">?:</span> <span class="ty">boolean</span><span class="op">) →</span> <span class="ty">Section</span></pre></div>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="kw">local</span> <span class="var">s</span> <span class="op">=</span> <span class="var">Tab</span><span class="op">:</span><span class="fn">AddCollapsingHeader</span><span class="op">(</span><span class="str">"Aim Settings"</span><span class="op">,</span> <span class="kw">true</span><span class="op">)</span>
+<span class="var">s</span><span class="op">:</span><span class="fn">AddCheckbox</span><span class="op">(</span><span class="str">"Silent Aim"</span><span class="op">,</span> <span class="kw">false</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">,</span> <span class="key">"silentaim"</span><span class="op">)</span>
+<span class="var">s</span><span class="op">:</span><span class="fn">AddSliderInt</span><span class="op">(</span><span class="str">"FOV"</span><span class="op">,</span> <span class="num">0</span><span class="op">,</span> <span class="num">360</span><span class="op">,</span> <span class="num">60</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">,</span> <span class="key">"fov"</span><span class="op">)</span></pre></div>
+  </section>
 
-    <!-- AddSeparator -->
-    <section class="section" id="addseparator">
-      <div class="section-header"><span class="section-num">17</span><h2>AddSeparator</h2></div>
-      <p>A thin horizontal rule to visually separate groups of widgets.</p>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-      <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddText</span><span class="op">(</span><span class="str">"Group A"</span><span class="op">)</span>
-<span class="var">Tab</span><span class="op">:</span><span class="fn">AddButton</span><span class="op">(</span><span class="str">"Action 1"</span><span class="op">)</span>
-<span class="var">Tab</span><span class="op">:</span><span class="fn">AddSeparator</span><span class="op">()</span>   <span class="cmt">-- ─────────────────</span>
-<span class="var">Tab</span><span class="op">:</span><span class="fn">AddText</span><span class="op">(</span><span class="str">"Group B"</span><span class="op">)</span>
-<span class="var">Tab</span><span class="op">:</span><span class="fn">AddButton</span><span class="op">(</span><span class="str">"Action 2"</span><span class="op">)</span></pre></div>
-    </section>
+  <!-- AddSeparator -->
+  <section class="section" id="addseparator">
+    <div class="section-header"><span class="section-num">17</span><h2>AddSeparator</h2></div>
+    <p>A thin horizontal rule to separate widget groups. No parameters, no key.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddSeparator</span><span class="op">()</span></pre></div>
+  </section>
 
-    <!-- ── Theming ── -->
-    <section class="section" id="theming">
-      <div class="section-header"><span class="section-num">18</span><h2>Theming</h2></div>
-      <p>Call <code>Window:SetTheme({})</code> with a table of overrides. Any key you don't specify keeps its default Dear ImGui dark theme value.</p>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-      <pre><span class="var">Window</span><span class="op">:</span><span class="fn">SetTheme</span><span class="op">({</span>
+  <!-- ══ CONFIG SYSTEM ══ -->
+
+  <!-- Widget Keys -->
+  <section class="section" id="config-keys">
+    <div class="section-header"><span class="section-num">18</span><h2>Widget Keys</h2></div>
+    <p>Every stateful widget accepts an optional <code>key</code> string as its last argument. The key is how the config system identifies each widget when saving and loading. Keys must be unique across the entire window.</p>
+    <div class="callout callout-warn">
+      <span class="callout-icon">&#9888;</span>
+      <div>Keys must be unique across all tabs and all collapsing headers in the same window. Using the same key twice will cause one widget to overwrite the other's saved value.</div>
+    </div>
+    <div class="cfg-flow">
+      <div class="cfg-step"><div class="cfg-step-num">1</div><div class="cfg-step-body"><strong>Add a key to any widget</strong><span>Pass a unique string as the last argument to AddCheckbox, AddSliderInt, AddSliderFloat, AddInputText, AddInputInt, AddInputFloat, AddCombo, AddColorEdit, or AddRadioGroup.</span></div></div>
+      <div class="cfg-step"><div class="cfg-step-num">2</div><div class="cfg-step-body"><strong>Call LoadConfig after adding all widgets</strong><span>This restores all saved values and fires each widget's callback with the loaded value.</span></div></div>
+      <div class="cfg-step"><div class="cfg-step-num">3</div><div class="cfg-step-body"><strong>Call EnableAutoSave or SaveConfig manually</strong><span>Auto-save fires SaveConfig on every widget change. Manual save gives you explicit control.</span></div></div>
+    </div>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Widgets that support keys</span></div>
+    <pre><span class="var">Tab</span><span class="op">:</span><span class="fn">AddCheckbox</span><span class="op">(</span><span class="var">text</span><span class="op">,</span> <span class="var">default</span><span class="op">,</span> <span class="var">callback</span><span class="op">,</span>       <span class="key">key</span><span class="op">)</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddSliderInt</span><span class="op">(</span><span class="var">text</span><span class="op">,</span> <span class="var">min</span><span class="op">,</span> <span class="var">max</span><span class="op">,</span> <span class="var">def</span><span class="op">,</span> <span class="var">callback</span><span class="op">,</span> <span class="key">key</span><span class="op">)</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddSliderFloat</span><span class="op">(</span><span class="var">text</span><span class="op">,</span> <span class="var">min</span><span class="op">,</span> <span class="var">max</span><span class="op">,</span> <span class="var">def</span><span class="op">,</span> <span class="var">callback</span><span class="op">,</span> <span class="key">key</span><span class="op">)</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddInputText</span><span class="op">(</span><span class="var">text</span><span class="op">,</span> <span class="var">default</span><span class="op">,</span> <span class="var">callback</span><span class="op">,</span>       <span class="key">key</span><span class="op">)</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddInputInt</span><span class="op">(</span><span class="var">text</span><span class="op">,</span> <span class="var">default</span><span class="op">,</span> <span class="var">callback</span><span class="op">,</span> <span class="var">step</span><span class="op">,</span> <span class="key">key</span><span class="op">)</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddInputFloat</span><span class="op">(</span><span class="var">text</span><span class="op">,</span> <span class="var">default</span><span class="op">,</span> <span class="var">callback</span><span class="op">,</span> <span class="var">step</span><span class="op">,</span> <span class="key">key</span><span class="op">)</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddCombo</span><span class="op">(</span><span class="var">text</span><span class="op">,</span> <span class="var">options</span><span class="op">,</span> <span class="var">default</span><span class="op">,</span> <span class="var">callback</span><span class="op">,</span>  <span class="key">key</span><span class="op">)</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddColorEdit</span><span class="op">(</span><span class="var">text</span><span class="op">,</span> <span class="var">default</span><span class="op">,</span> <span class="var">callback</span><span class="op">,</span>       <span class="key">key</span><span class="op">)</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddRadioGroup</span><span class="op">(</span><span class="var">items</span><span class="op">,</span> <span class="var">default</span><span class="op">,</span> <span class="var">callback</span><span class="op">,</span>     <span class="key">key</span><span class="op">)</span></pre></div>
+  </section>
+
+  <!-- Save & Load -->
+  <section class="section" id="config-saveload">
+    <div class="section-header"><span class="section-num">19</span><h2>Save &amp; Load</h2></div>
+    <p>Configs are stored as JSON files at <code>ImGuiLib/&lt;name&gt;.json</code> in your executor's filesystem. You can have multiple named configs — useful for presets.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="cmt">-- Save the current state of all keyed widgets</span>
+<span class="var">Window</span><span class="op">:</span><span class="fn">SaveConfig</span><span class="op">(</span><span class="str">"default"</span><span class="op">)</span>   <span class="cmt">-- → ImGuiLib/default.json</span>
+<span class="var">Window</span><span class="op">:</span><span class="fn">SaveConfig</span><span class="op">(</span><span class="str">"preset_a"</span><span class="op">)</span> <span class="cmt">-- → ImGuiLib/preset_a.json</span>
+
+<span class="cmt">-- Load and apply a saved config</span>
+<span class="cmt">-- Returns true on success, false if file doesn't exist</span>
+<span class="kw">local</span> <span class="var">ok</span> <span class="op">=</span> <span class="var">Window</span><span class="op">:</span><span class="fn">LoadConfig</span><span class="op">(</span><span class="str">"default"</span><span class="op">)</span>
+<span class="kw">if not</span> <span class="var">ok</span> <span class="kw">then</span>
+    <span class="fn">print</span><span class="op">(</span><span class="str">"No saved config found, using defaults"</span><span class="op">)</span>
+<span class="kw">end</span></pre></div>
+    <div class="callout callout-tip">
+      <span class="callout-icon">&#10003;</span>
+      <div>Call <code>LoadConfig</code> <em>after</em> you have added all your widgets. Loading before widgets are registered means their values have nowhere to go.</div>
+    </div>
+  </section>
+
+  <!-- Auto-Save -->
+  <section class="section" id="config-autosave">
+    <div class="section-header"><span class="section-num">20</span><h2>Auto-Save</h2></div>
+    <p>When enabled, the config is saved automatically every time any keyed widget's value changes. Call it after adding all widgets and after the initial <code>LoadConfig</code>.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Recommended pattern</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="cmt">-- 1. Add all your widgets with keys</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddCheckbox</span><span class="op">(</span><span class="str">"God Mode"</span><span class="op">,</span> <span class="kw">false</span><span class="op">,</span> <span class="var">onGodMode</span><span class="op">,</span> <span class="key">"godmode"</span><span class="op">)</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddSliderInt</span><span class="op">(</span><span class="str">"Walk Speed"</span><span class="op">,</span> <span class="num">0</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="num">16</span><span class="op">,</span> <span class="var">onSpeed</span><span class="op">,</span> <span class="key">"walkspeed"</span><span class="op">)</span>
+<span class="var">Tab</span><span class="op">:</span><span class="fn">AddCombo</span><span class="op">(</span><span class="str">"Team"</span><span class="op">, {</span><span class="str">"Red"</span><span class="op">,</span><span class="str">"Blue"</span><span class="op">},</span> <span class="str">"Red"</span><span class="op">,</span> <span class="var">onTeam</span><span class="op">,</span> <span class="key">"team"</span><span class="op">)</span>
+
+<span class="cmt">-- 2. Load saved config (applies values and fires callbacks)</span>
+<span class="var">Window</span><span class="op">:</span><span class="fn">LoadConfig</span><span class="op">(</span><span class="str">"default"</span><span class="op">)</span>
+
+<span class="cmt">-- 3. Enable auto-save so any future change is persisted</span>
+<span class="var">Window</span><span class="op">:</span><span class="fn">EnableAutoSave</span><span class="op">(</span><span class="str">"default"</span><span class="op">)</span></pre></div>
+  </section>
+
+  <!-- Config API -->
+  <section class="section" id="config-api">
+    <div class="section-header"><span class="section-num">21</span><h2>Config API</h2></div>
+    <p>Full reference for all config-related methods on the <code>Window</code> object.</p>
+
+    <div class="api-card"><div class="api-card-header" onclick="toggleCard(this)"><span class="api-method-badge badge-cfg">config</span><div class="api-sig"><span class="api-name">Window:SaveConfig</span><span class="op">(</span><span class="api-param">name</span><span class="op">?:</span> <span class="api-type">string</span><span class="op">) → boolean</span></div></div>
+    <div class="api-card-body"><p>Saves all keyed widget values to <code>ImGuiLib/&lt;name&gt;.json</code>. Creates the folder if it doesn't exist. Returns <code>true</code> on success, <code>false</code> on filesystem error. Defaults to <code>"default"</code> if no name given.</p></div></div>
+
+    <div class="api-card"><div class="api-card-header" onclick="toggleCard(this)"><span class="api-method-badge badge-cfg">config</span><div class="api-sig"><span class="api-name">Window:LoadConfig</span><span class="op">(</span><span class="api-param">name</span><span class="op">?:</span> <span class="api-type">string</span><span class="op">) → boolean</span></div></div>
+    <div class="api-card-body"><p>Loads <code>ImGuiLib/&lt;name&gt;.json</code> and applies all stored values to matching keyed widgets, firing each widget's callback. Returns <code>false</code> if the file doesn't exist or fails to parse.</p></div></div>
+
+    <div class="api-card"><div class="api-card-header" onclick="toggleCard(this)"><span class="api-method-badge badge-cfg">config</span><div class="api-sig"><span class="api-name">Window:EnableAutoSave</span><span class="op">(</span><span class="api-param">name</span><span class="op">?:</span> <span class="api-type">string</span><span class="op">)</span></div></div>
+    <div class="api-card-body"><p>From this point on, every time any keyed widget changes it calls <code>SaveConfig(name)</code> automatically. Call this after adding all widgets and after the initial <code>LoadConfig</code>.</p></div></div>
+
+    <div class="api-card"><div class="api-card-header" onclick="toggleCard(this)"><span class="api-method-badge badge-cfg">config</span><div class="api-sig"><span class="api-name">Window:DisableAutoSave</span><span class="op">()</span></div></div>
+    <div class="api-card-body"><p>Turns off auto-save. You can still call <code>SaveConfig</code> manually.</p></div></div>
+
+    <div class="api-card"><div class="api-card-header" onclick="toggleCard(this)"><span class="api-method-badge badge-cfg">config</span><div class="api-sig"><span class="api-name">Window:DeleteConfig</span><span class="op">(</span><span class="api-param">name</span><span class="op">?:</span> <span class="api-type">string</span><span class="op">) → boolean</span></div></div>
+    <div class="api-card-body"><p>Deletes <code>ImGuiLib/&lt;name&gt;.json</code> from the filesystem. Returns <code>true</code> on success.</p></div></div>
+
+    <div class="api-card"><div class="api-card-header" onclick="toggleCard(this)"><span class="api-method-badge badge-cfg">config</span><div class="api-sig"><span class="api-name">Window:ListConfigs</span><span class="op">() → {string}</span></div></div>
+    <div class="api-card-body"><p>Returns a table of all saved config names (without the <code>.json</code> extension) found in the <code>ImGuiLib/</code> folder.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span></div>
+    <pre><span class="kw">local</span> <span class="var">configs</span> <span class="op">=</span> <span class="var">Window</span><span class="op">:</span><span class="fn">ListConfigs</span><span class="op">()</span>
+<span class="cmt">-- { "default", "preset_a", "preset_b" }</span>
+<span class="kw">for</span> <span class="op">_,</span> <span class="var">name</span> <span class="kw">in</span> <span class="fn">ipairs</span><span class="op">(</span><span class="var">configs</span><span class="op">)</span> <span class="kw">do</span>
+    <span class="fn">print</span><span class="op">(</span><span class="var">name</span><span class="op">)</span>
+<span class="kw">end</span></pre></div></div></div>
+  </section>
+
+  <!-- Theming -->
+  <section class="section" id="theming">
+    <div class="section-header"><span class="section-num">22</span><h2>Theming</h2></div>
+    <p>Pass a table of overrides to <code>Window:SetTheme({})</code>. Keys you don't specify keep their Dear ImGui dark theme defaults.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="var">Window</span><span class="op">:</span><span class="fn">SetTheme</span><span class="op">({</span>
     <span class="var">TitleBgActive</span> <span class="op">=</span> <span class="ty">Color3</span><span class="op">.</span><span class="fn">fromRGB</span><span class="op">(</span><span class="num">80</span><span class="op">,</span> <span class="num">40</span><span class="op">,</span> <span class="num">120</span><span class="op">),</span>  <span class="cmt">-- purple title bar</span>
-    <span class="var">SliderGrab</span>    <span class="op">=</span> <span class="ty">Color3</span><span class="op">.</span><span class="fn">fromRGB</span><span class="op">(</span><span class="num">200</span><span class="op">,</span> <span class="num">80</span><span class="op">,</span> <span class="num">80</span><span class="op">),</span>   <span class="cmt">-- red slider fill</span>
+    <span class="var">SliderGrab</span>    <span class="op">=</span> <span class="ty">Color3</span><span class="op">.</span><span class="fn">fromRGB</span><span class="op">(</span><span class="num">200</span><span class="op">,</span> <span class="num">80</span><span class="op">,</span>  <span class="num">80</span><span class="op">),</span>  <span class="cmt">-- red slider fill</span>
     <span class="var">CheckMark</span>     <span class="op">=</span> <span class="ty">Color3</span><span class="op">.</span><span class="fn">fromRGB</span><span class="op">(</span><span class="num">80</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="num">120</span><span class="op">),</span>  <span class="cmt">-- green checkmarks</span>
-    <span class="var">Header</span>        <span class="op">=</span> <span class="ty">Color3</span><span class="op">.</span><span class="fn">fromRGB</span><span class="op">(</span><span class="num">80</span><span class="op">,</span> <span class="num">40</span><span class="op">,</span> <span class="num">120</span><span class="op">),</span>  <span class="cmt">-- selected items</span>
 <span class="op">})</span></pre></div>
-    </section>
+  </section>
 
-    <!-- Theme keys -->
-    <section class="section" id="theme-keys">
-      <div class="section-header"><span class="section-num">19</span><h2>Theme Keys</h2></div>
-      <p>All available keys and their default Dear ImGui dark theme values.</p>
-      <div class="theme-grid">
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(15,15,15)"></div><span class="theme-key">WindowBg</span><span class="theme-val">(15,15,15)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(20,20,20)"></div><span class="theme-key">ChildBg</span><span class="theme-val">(20,20,20)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(41,74,122)"></div><span class="theme-key">TitleBgActive</span><span class="theme-val">(41,74,122)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(36,36,36)"></div><span class="theme-key">MenuBarBg</span><span class="theme-val">(36,36,36)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(41,41,41)"></div><span class="theme-key">FrameBg</span><span class="theme-val">(41,41,41)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(66,66,66)"></div><span class="theme-key">FrameBgHover</span><span class="theme-val">(66,66,66)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(30,30,30)"></div><span class="theme-key">FrameBgActive</span><span class="theme-val">(30,30,30)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(66,66,66)"></div><span class="theme-key">Button</span><span class="theme-val">(66,66,66)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(100,100,100)"></div><span class="theme-key">ButtonHover</span><span class="theme-val">(100,100,100)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(41,74,122)"></div><span class="theme-key">ButtonActive</span><span class="theme-val">(41,74,122)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(41,74,122)"></div><span class="theme-key">Header</span><span class="theme-val">(41,74,122)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(66,66,66)"></div><span class="theme-key">HeaderHover</span><span class="theme-val">(66,66,66)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(100,149,237)"></div><span class="theme-key">SliderGrab</span><span class="theme-val">(100,149,237)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(100,149,237)"></div><span class="theme-key">CheckMark</span><span class="theme-val">(100,149,237)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(110,110,128)"></div><span class="theme-key">Separator</span><span class="theme-val">(110,110,128)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(255,255,255)"></div><span class="theme-key">Text</span><span class="theme-val">(255,255,255)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(128,128,128)"></div><span class="theme-key">TextDisabled</span><span class="theme-val">(128,128,128)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(110,110,128)"></div><span class="theme-key">Border</span><span class="theme-val">(110,110,128)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(20,20,20)"></div><span class="theme-key">PopupBg</span><span class="theme-val">(20,20,20)</span></div>
-        <div class="theme-row-item"><div class="color-dot" style="background:rgb(79,79,79)"></div><span class="theme-key">ScrollbarGrab</span><span class="theme-val">(79,79,79)</span></div>
-      </div>
-    </section>
+  <!-- Theme Keys -->
+  <section class="section" id="theme-keys">
+    <div class="section-header"><span class="section-num">23</span><h2>Theme Keys</h2></div>
+    <div class="theme-grid">
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(15,15,15)"></div><span class="theme-key">WindowBg</span><span class="theme-val">(15,15,15)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(20,20,20)"></div><span class="theme-key">ChildBg</span><span class="theme-val">(20,20,20)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(41,74,122)"></div><span class="theme-key">TitleBgActive</span><span class="theme-val">(41,74,122)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(36,36,36)"></div><span class="theme-key">MenuBarBg</span><span class="theme-val">(36,36,36)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(41,41,41)"></div><span class="theme-key">FrameBg</span><span class="theme-val">(41,41,41)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(66,66,66)"></div><span class="theme-key">FrameBgHover</span><span class="theme-val">(66,66,66)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(30,30,30)"></div><span class="theme-key">FrameBgActive</span><span class="theme-val">(30,30,30)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(66,66,66)"></div><span class="theme-key">Button</span><span class="theme-val">(66,66,66)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(100,100,100)"></div><span class="theme-key">ButtonHover</span><span class="theme-val">(100,100,100)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(41,74,122)"></div><span class="theme-key">ButtonActive</span><span class="theme-val">(41,74,122)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(41,74,122)"></div><span class="theme-key">Header</span><span class="theme-val">(41,74,122)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(66,66,66)"></div><span class="theme-key">HeaderHover</span><span class="theme-val">(66,66,66)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(100,149,237)"></div><span class="theme-key">SliderGrab</span><span class="theme-val">(100,149,237)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(100,149,237)"></div><span class="theme-key">CheckMark</span><span class="theme-val">(100,149,237)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(110,110,128)"></div><span class="theme-key">Separator</span><span class="theme-val">(110,110,128)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(255,255,255)"></div><span class="theme-key">Text</span><span class="theme-val">(255,255,255)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(128,128,128)"></div><span class="theme-key">TextDisabled</span><span class="theme-val">(128,128,128)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(110,110,128)"></div><span class="theme-key">Border</span><span class="theme-val">(110,110,128)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(20,20,20)"></div><span class="theme-key">PopupBg</span><span class="theme-val">(20,20,20)</span></div>
+      <div class="theme-row-item"><div class="color-dot" style="background:rgb(79,79,79)"></div><span class="theme-key">ScrollbarGrab</span><span class="theme-val">(79,79,79)</span></div>
+    </div>
+  </section>
 
-    <!-- ── Keybind ── -->
-    <section class="section" id="keybind">
-      <div class="section-header"><span class="section-num">20</span><h2>Keybind</h2></div>
-      <p>The window can be shown/hidden with a keyboard shortcut. Default is <code>RightShift</code>. Set it in <code>CreateWindow</code> or change it later:</p>
-      <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-      <pre><span class="cmt">-- At creation time</span>
-<span class="kw">local</span> <span class="var">Window</span> <span class="op">=</span> <span class="var">ImGui</span><span class="op">.</span><span class="fn">CreateWindow</span><span class="op">(</span><span class="str">"Tool"</span><span class="op">, {</span> <span class="var">ToggleKey</span> <span class="op">=</span> <span class="ty">Enum</span><span class="op">.</span><span class="ty">KeyCode</span><span class="op">.</span><span class="var">Insert</span> <span class="op">})</span>
+  <!-- Keybind -->
+  <section class="section" id="keybind">
+    <div class="section-header"><span class="section-num">24</span><h2>Keybind</h2></div>
+    <p>Default toggle key is <code>RightShift</code>. The keybind only fires when <code>GameProcessedEvent</code> is <code>false</code> — it won't trigger while typing in a textbox or using in-game chat.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Example</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="kw">local</span> <span class="var">Window</span> <span class="op">=</span> <span class="var">ImGui</span><span class="op">.</span><span class="fn">CreateWindow</span><span class="op">(</span><span class="str">"Tool"</span><span class="op">, {</span> <span class="var">ToggleKey</span><span class="op">=</span><span class="ty">Enum</span><span class="op">.</span><span class="ty">KeyCode</span><span class="op">.</span><span class="var">Insert</span> <span class="op">})</span>
+<span class="var">Window</span><span class="op">:</span><span class="fn">SetToggleKey</span><span class="op">(</span><span class="ty">Enum</span><span class="op">.</span><span class="ty">KeyCode</span><span class="op">.</span><span class="var">F4</span><span class="op">)</span>  <span class="cmt">-- or change at runtime</span></pre></div>
+  </section>
 
-<span class="cmt">-- Or at runtime</span>
-<span class="var">Window</span><span class="op">:</span><span class="fn">SetToggleKey</span><span class="op">(</span><span class="ty">Enum</span><span class="op">.</span><span class="ty">KeyCode</span><span class="op">.</span><span class="var">F4</span><span class="op">)</span></pre></div>
-      <div class="callout callout-warn">
-        <span class="callout-icon">&#9888;</span>
-        <div>The keybind only fires when <code>GameProcessedEvent</code> is <code>false</code> — it won't trigger while typing in a text box or using in-game chat.</div>
-      </div>
-    </section>
-
-    <!-- ── Full Example ── -->
-    <section class="section" id="full-example">
-      <div class="section-header"><span class="section-num">21</span><h2>Full Example</h2></div>
-      <p>A complete script demonstrating all widget types across multiple tabs.</p>
-      <div class="code-block">
-        <div class="code-block-header"><span class="lang">Luau</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
-        <pre><span class="kw">local</span> <span class="var">ImGui</span> <span class="op">=</span> <span class="fn">loadstring</span><span class="op">(</span><span class="fn">game</span><span class="op">:</span><span class="fn">HttpGet</span><span class="op">(</span><span class="str">"https://gist.githubusercontent.com/swapemc/c3ae8c632560c82180062a7bd6435360/raw/7a24509268982464b96ce28adf94c446d8381435/gistfile1.txt"</span><span class="op">))()</span>
+  <!-- Full Example -->
+  <section class="section" id="full-example">
+    <div class="section-header"><span class="section-num">25</span><h2>Full Example</h2></div>
+    <p>A complete script with multiple tabs, keyed widgets, config loading, and auto-save.</p>
+    <div class="code-block"><div class="code-block-header"><span class="lang">Luau</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+    <pre><span class="kw">local</span> <span class="var">ImGui</span> <span class="op">=</span> <span class="fn">loadstring</span><span class="op">(</span><span class="fn">game</span><span class="op">:</span><span class="fn">HttpGet</span><span class="op">(</span>
+    <span class="str">"https://gist.githubusercontent.com/swapemc/5471fafc4ab020982e882d243fbbdf4d/raw/574f5fd2c654a9e0d20747290e3084bb56dea591/gistfile1.txt"</span>
+<span class="op">))()</span>
 
 <span class="kw">local</span> <span class="var">Window</span> <span class="op">=</span> <span class="var">ImGui</span><span class="op">.</span><span class="fn">CreateWindow</span><span class="op">(</span><span class="str">"My Tool"</span><span class="op">, {</span>
     <span class="var">Width</span>     <span class="op">=</span> <span class="num">430</span><span class="op">,</span>
@@ -1006,7 +598,7 @@
     <span class="var">ToggleKey</span> <span class="op">=</span> <span class="ty">Enum</span><span class="op">.</span><span class="ty">KeyCode</span><span class="op">.</span><span class="var">RightShift</span><span class="op">,</span>
 <span class="op">})</span>
 
-<span class="cmt">-- ── MAIN TAB ──────────────────────────────────</span>
+<span class="cmt">-- ── MAIN TAB ──────────────────────────────────────────────</span>
 <span class="kw">local</span> <span class="var">Main</span> <span class="op">=</span> <span class="var">Window</span><span class="op">:</span><span class="fn">AddTab</span><span class="op">(</span><span class="str">"Main"</span><span class="op">)</span>
 
 <span class="var">Main</span><span class="op">:</span><span class="fn">AddText</span><span class="op">(</span><span class="str">"Hello, world!"</span><span class="op">)</span>
@@ -1016,109 +608,78 @@
     <span class="kw">local</span> <span class="var">hum</span> <span class="op">=</span> <span class="fn">game</span><span class="op">.</span><span class="var">Players</span><span class="op">.</span><span class="var">LocalPlayer</span><span class="op">.</span><span class="var">Character</span><span class="op">.</span><span class="var">Humanoid</span>
     <span class="var">hum</span><span class="op">.</span><span class="var">MaxHealth</span> <span class="op">=</span> <span class="var">v</span> <span class="kw">and</span> <span class="ty">math</span><span class="op">.</span><span class="fn">huge</span> <span class="kw">or</span> <span class="num">100</span>
     <span class="var">hum</span><span class="op">.</span><span class="var">Health</span>    <span class="op">=</span> <span class="var">hum</span><span class="op">.</span><span class="var">MaxHealth</span>
-<span class="kw">end</span><span class="op">)</span>
+<span class="kw">end</span><span class="op">,</span> <span class="key">"godmode"</span><span class="op">)</span>
 
 <span class="var">Main</span><span class="op">:</span><span class="fn">AddSliderInt</span><span class="op">(</span><span class="str">"Walk Speed"</span><span class="op">,</span> <span class="num">0</span><span class="op">,</span> <span class="num">200</span><span class="op">,</span> <span class="num">16</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">)</span>
     <span class="fn">game</span><span class="op">.</span><span class="var">Players</span><span class="op">.</span><span class="var">LocalPlayer</span><span class="op">.</span><span class="var">Character</span><span class="op">.</span><span class="var">Humanoid</span><span class="op">.</span><span class="var">WalkSpeed</span> <span class="op">=</span> <span class="var">v</span>
-<span class="kw">end</span><span class="op">)</span>
+<span class="kw">end</span><span class="op">,</span> <span class="key">"walkspeed"</span><span class="op">)</span>
 
 <span class="var">Main</span><span class="op">:</span><span class="fn">AddSliderFloat</span><span class="op">(</span><span class="str">"Gravity"</span><span class="op">,</span> <span class="num">0.0</span><span class="op">,</span> <span class="num">5.0</span><span class="op">,</span> <span class="num">1.0</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">)</span>
     <span class="fn">workspace</span><span class="op">.</span><span class="var">Gravity</span> <span class="op">=</span> <span class="var">v</span> <span class="op">*</span> <span class="num">196.2</span>
-<span class="kw">end</span><span class="op">)</span>
+<span class="kw">end</span><span class="op">,</span> <span class="key">"gravity"</span><span class="op">)</span>
 
-<span class="var">Main</span><span class="op">:</span><span class="fn">AddInputText</span><span class="op">(</span><span class="str">"Target"</span><span class="op">,</span> <span class="str">""</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">t</span><span class="op">)</span> <span class="fn">print</span><span class="op">(</span><span class="var">t</span><span class="op">) </span><span class="kw">end</span><span class="op">)</span>
+<span class="var">Main</span><span class="op">:</span><span class="fn">AddInputText</span><span class="op">(</span><span class="str">"Target"</span><span class="op">,</span> <span class="str">""</span><span class="op">,</span> <span class="kw">function</span><span class="op">(</span><span class="var">t</span><span class="op">) </span><span class="fn">print</span><span class="op">(</span><span class="var">t</span><span class="op">) </span><span class="kw">end</span><span class="op">,</span> <span class="key">"target"</span><span class="op">)</span>
 
 <span class="var">Main</span><span class="op">:</span><span class="fn">AddCombo</span><span class="op">(</span><span class="str">"Aim Part"</span><span class="op">, {</span><span class="str">"Head"</span><span class="op">,</span><span class="str">"Torso"</span><span class="op">,</span><span class="str">"HumanoidRootPart"</span><span class="op">},</span> <span class="str">"Head"</span><span class="op">,</span>
-    <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">)</span> <span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">)</span>
+    <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">,</span> <span class="key">"aimpart"</span><span class="op">)</span>
 
 <span class="var">Main</span><span class="op">:</span><span class="fn">AddButton</span><span class="op">(</span><span class="str">"Rejoin"</span><span class="op">,</span> <span class="kw">function</span><span class="op">()</span>
     <span class="fn">game</span><span class="op">:</span><span class="fn">GetService</span><span class="op">(</span><span class="str">"TeleportService"</span><span class="op">):</span><span class="fn">Teleport</span><span class="op">(</span><span class="fn">game</span><span class="op">.</span><span class="var">PlaceId</span><span class="op">)</span>
 <span class="kw">end</span><span class="op">)</span>
 
-<span class="cmt">-- ── VISUALS TAB ───────────────────────────────</span>
+<span class="cmt">-- ── VISUALS TAB ───────────────────────────────────────────</span>
 <span class="kw">local</span> <span class="var">Visual</span> <span class="op">=</span> <span class="var">Window</span><span class="op">:</span><span class="fn">AddTab</span><span class="op">(</span><span class="str">"Visuals"</span><span class="op">)</span>
 
-<span class="kw">local</span> <span class="var">espSection</span> <span class="op">=</span> <span class="var">Visual</span><span class="op">:</span><span class="fn">AddCollapsingHeader</span><span class="op">(</span><span class="str">"ESP"</span><span class="op">,</span> <span class="kw">true</span><span class="op">)</span>
-<span class="var">espSection</span><span class="op">:</span><span class="fn">AddCheckbox</span><span class="op">(</span><span class="str">"Boxes"</span><span class="op">,</span>    <span class="kw">true</span><span class="op">,</span>  <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">)</span> <span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">)</span>
-<span class="var">espSection</span><span class="op">:</span><span class="fn">AddCheckbox</span><span class="op">(</span><span class="str">"Name Tags"</span><span class="op">,</span> <span class="kw">false</span><span class="op">, </span><span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">)</span> <span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">)</span>
-<span class="var">espSection</span><span class="op">:</span><span class="fn">AddColorEdit</span><span class="op">(</span><span class="str">"ESP Color"</span><span class="op">,</span> <span class="ty">Color3</span><span class="op">.</span><span class="fn">fromRGB</span><span class="op">(</span><span class="num">255</span><span class="op">,</span><span class="num">0</span><span class="op">,</span><span class="num">0</span><span class="op">),</span>
-    <span class="kw">function</span><span class="op">(</span><span class="var">c</span><span class="op">)</span> <span class="fn">print</span><span class="op">(</span><span class="var">c</span><span class="op">) </span><span class="kw">end</span><span class="op">)</span>
+<span class="kw">local</span> <span class="var">esp</span> <span class="op">=</span> <span class="var">Visual</span><span class="op">:</span><span class="fn">AddCollapsingHeader</span><span class="op">(</span><span class="str">"ESP"</span><span class="op">,</span> <span class="kw">true</span><span class="op">)</span>
+<span class="var">esp</span><span class="op">:</span><span class="fn">AddCheckbox</span><span class="op">(</span><span class="str">"Boxes"</span><span class="op">,</span>    <span class="kw">true</span><span class="op">,</span>  <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">,</span> <span class="key">"espboxes"</span><span class="op">)</span>
+<span class="var">esp</span><span class="op">:</span><span class="fn">AddCheckbox</span><span class="op">(</span><span class="str">"Name Tags"</span><span class="op">,</span> <span class="kw">false</span><span class="op">, </span><span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="fn">print</span><span class="op">(</span><span class="var">v</span><span class="op">) </span><span class="kw">end</span><span class="op">,</span> <span class="key">"espnames"</span><span class="op">)</span>
+<span class="var">esp</span><span class="op">:</span><span class="fn">AddColorEdit</span><span class="op">(</span><span class="str">"ESP Color"</span><span class="op">,</span> <span class="ty">Color3</span><span class="op">.</span><span class="fn">fromRGB</span><span class="op">(</span><span class="num">255</span><span class="op">,</span><span class="num">0</span><span class="op">,</span><span class="num">0</span><span class="op">),</span>
+    <span class="kw">function</span><span class="op">(</span><span class="var">c</span><span class="op">) </span><span class="fn">print</span><span class="op">(</span><span class="var">c</span><span class="op">) </span><span class="kw">end</span><span class="op">,</span> <span class="key">"espcolor"</span><span class="op">)</span>
 
-<span class="cmt">-- ── SETTINGS TAB ──────────────────────────────</span>
+<span class="cmt">-- ── SETTINGS TAB ──────────────────────────────────────────</span>
 <span class="kw">local</span> <span class="var">Settings</span> <span class="op">=</span> <span class="var">Window</span><span class="op">:</span><span class="fn">AddTab</span><span class="op">(</span><span class="str">"Settings"</span><span class="op">)</span>
 
-<span class="var">Settings</span><span class="op">:</span><span class="fn">AddText</span><span class="op">(</span><span class="str">"Theme"</span><span class="op">)</span>
-<span class="var">Settings</span><span class="op">:</span><span class="fn">AddRadioGroup</span><span class="op">(</span>
-    <span class="op">{</span><span class="str">"Default"</span><span class="op">,</span> <span class="str">"Purple"</span><span class="op">,</span> <span class="str">"Red"</span><span class="op">},</span> <span class="str">"Default"</span><span class="op">,</span>
-    <span class="kw">function</span><span class="op">(</span><span class="var">v</span><span class="op">)</span>
-        <span class="kw">local</span> <span class="var">themes</span> <span class="op">= {</span>
-            <span class="var">Default</span> <span class="op">=</span> <span class="ty">Color3</span><span class="op">.</span><span class="fn">fromRGB</span><span class="op">(</span><span class="num">41</span><span class="op">,</span> <span class="num">74</span><span class="op">,</span> <span class="num">122</span><span class="op">),</span>
-            <span class="var">Purple</span>  <span class="op">=</span> <span class="ty">Color3</span><span class="op">.</span><span class="fn">fromRGB</span><span class="op">(</span><span class="num">80</span><span class="op">,</span> <span class="num">40</span><span class="op">,</span> <span class="num">120</span><span class="op">),</span>
-            <span class="var">Red</span>     <span class="op">=</span> <span class="ty">Color3</span><span class="op">.</span><span class="fn">fromRGB</span><span class="op">(</span><span class="num">120</span><span class="op">,</span> <span class="num">30</span><span class="op">,</span> <span class="num">30</span><span class="op">),</span>
-        <span class="op">}</span>
-        <span class="var">Window</span><span class="op">:</span><span class="fn">SetTheme</span><span class="op">({ </span><span class="var">TitleBgActive</span> <span class="op">=</span> <span class="var">themes</span><span class="op">[</span><span class="var">v</span><span class="op">] })</span>
-    <span class="kw">end</span>
-<span class="op">)</span>
-
+<span class="var">Settings</span><span class="op">:</span><span class="fn">AddText</span><span class="op">(</span><span class="str">"Config"</span><span class="op">)</span>
+<span class="var">Settings</span><span class="op">:</span><span class="fn">AddButton</span><span class="op">(</span><span class="str">"Save Config"</span><span class="op">,</span>  <span class="kw">function</span><span class="op">() </span><span class="var">Window</span><span class="op">:</span><span class="fn">SaveConfig</span><span class="op">(</span><span class="str">"default"</span><span class="op">) </span><span class="kw">end</span><span class="op">)</span>
+<span class="var">Settings</span><span class="op">:</span><span class="fn">AddButton</span><span class="op">(</span><span class="str">"Load Config"</span><span class="op">,</span>  <span class="kw">function</span><span class="op">() </span><span class="var">Window</span><span class="op">:</span><span class="fn">LoadConfig</span><span class="op">(</span><span class="str">"default"</span><span class="op">) </span><span class="kw">end</span><span class="op">)</span>
+<span class="var">Settings</span><span class="op">:</span><span class="fn">AddButton</span><span class="op">(</span><span class="str">"Delete Config"</span><span class="op">,</span> <span class="kw">function</span><span class="op">() </span><span class="var">Window</span><span class="op">:</span><span class="fn">DeleteConfig</span><span class="op">(</span><span class="str">"default"</span><span class="op">) </span><span class="kw">end</span><span class="op">)</span>
 <span class="var">Settings</span><span class="op">:</span><span class="fn">AddSeparator</span><span class="op">()</span>
-<span class="var">Settings</span><span class="op">:</span><span class="fn">AddButton</span><span class="op">(</span><span class="str">"Destroy GUI"</span><span class="op">,</span> <span class="kw">function</span><span class="op">()</span>
-    <span class="var">Window</span><span class="op">:</span><span class="fn">Destroy</span><span class="op">()</span>
-<span class="kw">end</span><span class="op">)</span></pre>
-      </div>
-    </section>
+<span class="var">Settings</span><span class="op">:</span><span class="fn">AddButton</span><span class="op">(</span><span class="str">"Destroy GUI"</span><span class="op">,</span> <span class="kw">function</span><span class="op">() </span><span class="var">Window</span><span class="op">:</span><span class="fn">Destroy</span><span class="op">() </span><span class="kw">end</span><span class="op">)</span>
 
-    <footer>
-      <span>ImGuiLib</span> &nbsp;·&nbsp; Luau / Roblox &nbsp;·&nbsp; Dear ImGui Dark Theme
-      <span style="color:var(--text3)">v1.0.0</span>
-    </footer>
-  </main>
+<span class="cmt">-- ── INIT: load saved config, then enable auto-save ────────</span>
+<span class="var">Window</span><span class="op">:</span><span class="fn">LoadConfig</span><span class="op">(</span><span class="str">"default"</span><span class="op">)</span>
+<span class="var">Window</span><span class="op">:</span><span class="fn">EnableAutoSave</span><span class="op">(</span><span class="str">"default"</span><span class="op">)</span></pre></div>
+  </section>
+
+  <footer>
+    <span>ImGuiLib</span> &nbsp;·&nbsp; Luau / Roblox &nbsp;·&nbsp; Dear ImGui Dark Theme
+    <span style="color:var(--text3)">v1.0.0</span>
+  </footer>
+</main>
 </div>
 
 <script>
-  // ── Copy buttons ──
-  function copyCode(btn) {
-    var pre = btn.closest('.code-block').querySelector('pre');
-    var text = pre.innerText || pre.textContent;
-    navigator.clipboard.writeText(text).then(function() {
-      btn.textContent = 'copied!';
-      btn.classList.add('copied');
-      setTimeout(function() {
-        btn.textContent = 'copy';
-        btn.classList.remove('copied');
-      }, 1800);
-    });
-  }
-
-  // ── Collapsible API cards ──
-  function toggleCard(header) {
-    var body = header.nextElementSibling;
-    body.classList.toggle('open');
-  }
-
-  // ── Active nav on scroll ──
-  var navItems = document.querySelectorAll('.nav-item');
-  var sections = document.querySelectorAll('.section');
-
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var id = entry.target.id;
-        navItems.forEach(function(item) {
-          item.classList.toggle('active', item.getAttribute('href') === '#' + id);
-        });
-      }
-    });
-  }, { rootMargin: '-20% 0px -70% 0px' });
-
-  sections.forEach(function(s) { observer.observe(s); });
-
-  // ── Smooth nav clicks ──
-  navItems.forEach(function(item) {
-    item.addEventListener('click', function(e) {
-      navItems.forEach(function(i) { i.classList.remove('active'); });
-      item.classList.add('active');
-    });
+function copyCode(btn) {
+  var pre = btn.closest('.code-block').querySelector('pre');
+  navigator.clipboard.writeText(pre.innerText || pre.textContent).then(function() {
+    btn.textContent = 'copied!'; btn.classList.add('copied');
+    setTimeout(function() { btn.textContent = 'copy'; btn.classList.remove('copied'); }, 1800);
   });
+}
+function toggleCard(header) {
+  header.nextElementSibling.classList.toggle('open');
+}
+var navItems = document.querySelectorAll('.nav-item');
+var sections = document.querySelectorAll('.section');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      var id = e.target.id;
+      navItems.forEach(function(i) { i.classList.toggle('active', i.getAttribute('href') === '#' + id); });
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(function(s) { observer.observe(s); });
 </script>
 </body>
 </html>
