@@ -445,8 +445,19 @@ function Window.new(title, options)
     UserInputService.InputChanged:Connect(function(inp) if drag and inp.UserInputType==Enum.UserInputType.MouseMovement then local d=inp.Position-dStart; win.Position=UDim2.new(dPos.X.Scale,dPos.X.Offset+d.X,dPos.Y.Scale,dPos.Y.Offset+d.Y) end end)
     UserInputService.InputEnded:Connect(function(inp) if inp.UserInputType==Enum.UserInputType.MouseButton1 then drag=false end end)
 
-    -- Menu bar (tabs go here)
-    local mb=mk("Frame",{Name="MenuBar",Size=UDim2.new(1,0,0,M.MenuBarH),Position=UDim2.new(0,0,0,M.TitleHeight),BackgroundColor3=self.Theme.MenuBarBg,BorderSizePixel=0},win)
+    -- Menu bar (tabs go here) — ScrollingFrame so tabs never overflow the window
+    local mb=mk("ScrollingFrame",{
+        Name="MenuBar",
+        Size=UDim2.new(1,0,0,M.MenuBarH),
+        Position=UDim2.new(0,0,0,M.TitleHeight),
+        BackgroundColor3=self.Theme.MenuBarBg,
+        BorderSizePixel=0,
+        ScrollBarThickness=0,          -- hide scrollbar; users mouse-wheel to scroll
+        ScrollingDirection=Enum.ScrollingDirection.X,
+        CanvasSize=UDim2.new(0,0,0,0),
+        AutomaticCanvasSize=Enum.AutomaticSize.X,
+        ClipsDescendants=true,
+    },win)
     hlist(mb,0); pad(mb,2,2,4,4)
     mk("Frame",{Size=UDim2.new(1,0,0,1),Position=UDim2.new(0,0,1,-1),BackgroundColor3=self.Theme.Border,BackgroundTransparency=0.5,BorderSizePixel=0},mb)
     self._menuBar=mb
